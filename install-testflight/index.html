@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install via TestFlight — OpenCode Mobile</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">iOS · install</div>
+    <h1>Install via TestFlight</h1>
+    <p class="lede">
+      Get <strong>OpenCode Mobile — Unofficial</strong> through Apple’s TestFlight
+      <em>Internal Testing</em>. This is a private team channel — not the App Store.
+    </p>
+
+    <p class="note">
+      You must be an <strong>App Store Connect</strong> team member for this app.
+      Internal Testing does not use public invite links or External Testing groups.
+      After install, connect the app to your server with the
+      <a href="../connecting/">connection guide</a>.
+    </p>
+
+    <section id="before">
+      <div class="section-head">
+        <div class="step-badge">0</div>
+        <div>
+          <h2>Before you start</h2>
+          <p>What you need on the device</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="clean">
+          <li>An iPhone or iPad signed into the Apple ID that was added to the App Store Connect team</li>
+          <li>The free <strong>TestFlight</strong> app from the App Store</li>
+          <li>A build that has finished Apple processing (someone on the team usually triggers upload)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <div class="step-badge">1</div>
+        <div>
+          <h2>Install the build</h2>
+          <p>On your physical device</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Steps</h3>
+        <ol class="clean">
+          <li>Install <strong>TestFlight</strong> from the App Store if you don’t already have it.</li>
+          <li>Open TestFlight while signed in with your invited Apple ID.</li>
+          <li>Find <strong>OpenCode Mobile — Unofficial</strong>.</li>
+          <li>Accept the invite if prompted, then tap <strong>Install</strong> (or <strong>Update</strong>).</li>
+          <li>Launch the app from TestFlight or the Home Screen.</li>
+        </ol>
+        <p class="callout">
+          <strong>Still processing?</strong> New uploads can sit in “Processing” in App Store Connect
+          for a while. The build only appears in TestFlight after Apple finishes that step.
+        </p>
+      </div>
+    </section>
+
+    <section id="next">
+      <div class="section-head">
+        <div class="step-badge">2</div>
+        <div>
+          <h2>After install</h2>
+          <p>Point the app at your opencode server</p>
+        </div>
+      </div>
+      <div class="card">
+        <ol class="clean">
+          <li>Open the app and complete or skip onboarding if shown.</li>
+          <li>Follow <a href="../connecting/">Connect to an opencode server</a> (Tailscale recommended).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div class="step-badge">✓</div>
+        <div>
+          <h2>Checklist</h2>
+          <p>Quick confirmation</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Apple ID is on the App Store Connect team</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>TestFlight app installed</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Build visible and not stuck in Processing</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>App installs and opens</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <details>
+      <summary>Troubleshooting</summary>
+      <div class="body">
+        <table>
+          <thead>
+            <tr><th>Symptom</th><th>Likely cause</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>App never appears in TestFlight</td>
+              <td>Apple ID not on the ASC team; build still processing; wrong Apple ID on the device</td>
+            </tr>
+            <tr>
+              <td>Only an old build shows</td>
+              <td>Newer upload not finished processing, or Internal Testing not updated yet</td>
+            </tr>
+            <tr>
+              <td>Need a non-team tester</td>
+              <td>Use <a href="../install-firebase-ios/">Firebase App Distribution (iOS)</a> instead — not External TestFlight</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <p class="footer">
+      <a href="../">All docs</a>
+      · Also available: <a href="../install-firebase-ios/">Firebase iOS</a>
+    </p>
+  </main>
+</body>
+</html>

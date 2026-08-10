@@ -4,19 +4,18 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 
 ## Site
 
-Published with GitHub Pages:
-
 **https://opencode-mobile.github.io/opencode-mobile-docs/**
 
 ## Contents
 
 | Path | Guide |
 | --- | --- |
+| [`install-testflight/`](./install-testflight/) | Install iOS via TestFlight Internal Testing |
+| [`install-firebase-ios/`](./install-firebase-ios/) | Install iOS via Firebase App Distribution |
+| [`install-firebase-android/`](./install-firebase-android/) | Install Android via Firebase App Distribution |
 | [`connecting/`](./connecting/) | Start opencode serve, Tailscale, connect the app |
 
 ## Local preview
-
-Open `index.html` in a browser, or:
 
 ```bash
 python3 -m http.server 8080

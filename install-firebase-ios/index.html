@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install via Firebase (iOS) — OpenCode Mobile</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">iOS · install</div>
+    <h1>Install via Firebase App Distribution</h1>
+    <p class="lede">
+      Install the Ad Hoc build of <strong>OpenCode Mobile — Unofficial</strong>
+      from a private Firebase tester group. New merges to <code>main</code> ship
+      here automatically.
+    </p>
+
+    <p class="note">
+      Access is invite-only (group <code>ios-internal</code>). There is
+      <strong>no public invite link</strong>. Your device UDID must be registered
+      for Ad Hoc signing before the build will install. After install, use the
+      <a href="../connecting/">connection guide</a>.
+    </p>
+
+    <section id="before">
+      <div class="section-head">
+        <div class="step-badge">0</div>
+        <div>
+          <h2>Before you start</h2>
+          <p>Operator + device prerequisites</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="clean">
+          <li>Your email was added to the private Firebase group <code>ios-internal</code></li>
+          <li>Your device <strong>UDID</strong> was registered with Apple and included in a new Ad Hoc build</li>
+          <li>You can open email on that same iPhone / iPad (or the Firebase App Tester app)</li>
+        </ul>
+        <p class="callout">
+          <strong>New device?</strong> Tell the maintainer your UDID. After they register it,
+          wait for a <em>new</em> App Distribution build — old builds won’t include your device.
+        </p>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <div class="step-badge">1</div>
+        <div>
+          <h2>Install from Firebase</h2>
+          <p>Tester experience on the device</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Steps</h3>
+        <ol class="clean">
+          <li>Open the Firebase App Distribution email invite (or a release link the maintainer sent).</li>
+          <li>Sign in with the invited Google account if prompted.</li>
+          <li>Accept the tester invite the first time.</li>
+          <li>Open the latest <strong>OpenCode Mobile — Unofficial</strong> release.</li>
+          <li>Tap <strong>Download</strong> / <strong>Install</strong> and follow the on-device prompts.</li>
+          <li>If iOS asks you to trust the developer, go to
+            <strong>Settings → General → VPN &amp; Device Management</strong> and trust the profile, then open the app.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Where releases come from</h3>
+        <p>
+          Every push to protected <code>main</code> can produce a new Ad Hoc IPA for
+          <code>ios-internal</code>. Build numbers are in a high range (separate from TestFlight)
+          so the two channels don’t collide.
+        </p>
+      </div>
+    </section>
+
+    <section id="next">
+      <div class="section-head">
+        <div class="step-badge">2</div>
+        <div>
+          <h2>After install</h2>
+          <p>Connect to your server</p>
+        </div>
+      </div>
+      <div class="card">
+        <ol class="clean">
+          <li>Launch <strong>OpenCode Mobile — Unofficial</strong>.</li>
+          <li>Follow <a href="../connecting/">Connect to an opencode server</a>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div class="step-badge">✓</div>
+        <div>
+          <h2>Checklist</h2>
+          <p>Quick confirmation</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Invited to <code>ios-internal</code></span></li>
+          <li><span class="box" aria-hidden="true"></span><span>UDID registered + new build cut</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Release installs from Firebase</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Developer profile trusted if prompted</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <details>
+      <summary>Troubleshooting</summary>
+      <div class="body">
+        <table>
+          <thead>
+            <tr><th>Symptom</th><th>Likely cause</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Install fails / “Unable to Install”</td>
+              <td>UDID missing from the Ad Hoc profile; need a newer build after registration</td>
+            </tr>
+            <tr>
+              <td>No invite / no releases</td>
+              <td>Email not in <code>ios-internal</code>; wrong Google account signed in</td>
+            </tr>
+            <tr>
+              <td>Conflict with TestFlight build</td>
+              <td>Uninstall the TestFlight copy, then install the Firebase Ad Hoc build</td>
+            </tr>
+            <tr>
+              <td>Want ASC team installs instead</td>
+              <td>Use <a href="../install-testflight/">TestFlight Internal Testing</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <p class="footer">
+      <a href="../">All docs</a>
+      · Android: <a href="../install-firebase-android/">Firebase Android</a>
+      · iOS alt: <a href="../install-testflight/">TestFlight</a>
+    </p>
+  </main>
+</body>
+</html>
