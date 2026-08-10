@@ -4,64 +4,81 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OpenCode Mobile Docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/site.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Site">
-      <a class="site-brand" href="./" aria-current="page">OpenCode Mobile <span>Docs</span></a>
+  <div class="shell">
+    <aside class="site-rail">
+      <a class="site-brand" href="./">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="./" aria-current="page">Overview</a>
+        <a href="./request-access/">Request access</a>
+        <a href="./install-testflight/">Install · TestFlight</a>
+        <a href="./install-firebase-ios/">Install · Firebase iOS</a>
+        <a href="./install-firebase-android/">Install · Firebase Android</a>
+        <a href="./connecting/">Connect</a>
+      </nav>
       <a class="site-access" href="./request-access/">Request access</a>
-      <div class="site-links">
-      <a href="./connecting/">Connect</a>
-      <a href="./install-testflight/">TestFlight</a>
-      <a href="./install-firebase-ios/">Firebase iOS</a>
-      <a href="./install-firebase-android/">Firebase Android</a>
+    </aside>
+    <main class="page">
+      <div class="eyebrow">Public tester docs</div>
+      <h1>Manifest</h1>
+      <p class="lede">
+        Setup and install guides for the unofficial native clients.
+        Invite-only builds — then connect a phone to an opencode server you already run.
+      </p>
+
+      <div class="manifest">
+        <a class="manifest-row" href="./request-access/">
+          <span class="code">ACCESS</span>
+          <span>
+            <strong>Request access</strong>
+            <em>Ask to join TestFlight or Firebase App Distribution</em>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="manifest-row" href="./install-testflight/">
+          <span class="code">IOS-TF</span>
+          <span>
+            <strong>Install via TestFlight</strong>
+            <em>iOS Internal Testing for App Store Connect team members</em>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="manifest-row" href="./install-firebase-ios/">
+          <span class="code">IOS-FB</span>
+          <span>
+            <strong>Install via Firebase — iOS</strong>
+            <em>Private Ad Hoc builds for <code>ios-internal</code></em>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="manifest-row" href="./install-firebase-android/">
+          <span class="code">AND-FB</span>
+          <span>
+            <strong>Install via Firebase — Android</strong>
+            <em>Private APK builds for <code>android-internal</code></em>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="manifest-row" href="./connecting/">
+          <span class="code">CONN</span>
+          <span>
+            <strong>Connect to an opencode server</strong>
+            <em>Serve · Tailscale · Connection Profile</em>
+          </span>
+          <span class="arrow">→</span>
+        </a>
       </div>
-    </nav>
-  </header>
-  <main class="page">
-    <div class="eyebrow">OpenCode Mobile</div>
-    <h1>Docs</h1>
-    <p class="lede">
-      Public setup and install guides for the unofficial native clients.
-      Product source stays in the private app repo.
-    </p>
 
-    <div class="group-label">Get access</div>
-    <div class="card-list">
-      <a class="card" href="./request-access/">
-        <strong>Request access</strong>
-        <span>Ask to join TestFlight or Firebase App Distribution.</span>
-      </a>
-    </div>
-
-    <div class="group-label">Get the app</div>
-    <div class="card-list">
-      <a class="card" href="./install-testflight/">
-        <strong>Install via TestFlight</strong>
-        <span>iOS Internal Testing for App Store Connect team members.</span>
-      </a>
-      <a class="card" href="./install-firebase-ios/">
-        <strong>Install via Firebase — iOS</strong>
-        <span>Private Ad Hoc builds for the <code>ios-internal</code> tester group.</span>
-      </a>
-      <a class="card" href="./install-firebase-android/">
-        <strong>Install via Firebase — Android</strong>
-        <span>Private APK builds for the <code>android-internal</code> tester group.</span>
-      </a>
-    </div>
-
-    <div class="group-label">Use the app</div>
-    <div class="card-list">
-      <a class="card" href="./connecting/">
-        <strong>Connect to an opencode server</strong>
-        <span>Start the server, set up Tailscale, save a Connection Profile.</span>
-      </a>
-    </div>
-
-    <p class="footer">
-      <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
-    </p>
-  </main>
+      <p class="footer">
+        <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
+      </p>
+    </main>
+  </div>
 </body>
 </html>

@@ -4,22 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Connect OpenCode Mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Site">
+  <div class="shell">
+    <aside class="site-rail">
       <a class="site-brand" href="../">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="../">Overview</a>
+        <a href="../request-access/">Request access</a>
+        <a href="../install-testflight/">Install · TestFlight</a>
+        <a href="../install-firebase-ios/">Install · Firebase iOS</a>
+        <a href="../install-firebase-android/">Install · Firebase Android</a>
+        <a href="../connecting/" aria-current="page">Connect</a>
+      </nav>
       <a class="site-access" href="../request-access/">Request access</a>
-      <div class="site-links">
-      <a href="../connecting/" aria-current="page">Connect</a>
-      <a href="../install-testflight/">TestFlight</a>
-      <a href="../install-firebase-ios/">Firebase iOS</a>
-      <a href="../install-firebase-android/">Firebase Android</a>
-      </div>
-    </nav>
-  </header>
-  <main class="page">
+    </aside>
+    <main class="page">
     <div class="eyebrow">Setup guide</div>
     <h1>Connect OpenCode Mobile to your server</h1>
     <p class="lede">
@@ -241,5 +246,6 @@ tailscale serve 4096</code></pre>
       · <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
     </p>
   </main>
+  </div>
 </body>
 </html>

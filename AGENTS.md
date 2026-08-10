@@ -20,8 +20,8 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 
 | Path | Role |
 | --- | --- |
-| `index.html` | Landing page with grouped guide cards |
-| `assets/site.css` | Shared styles (nav, cards, callouts, CTAs) |
+| `index.html` | Landing page with manifest index |
+| `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
 | `request-access/` | Google Form CTA for tester access |
 | `install-testflight/` | iOS TestFlight Internal Testing |
@@ -33,17 +33,18 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 ## Page conventions
 
 - Self-contained HTML; shared look via `../assets/site.css` (or `./assets/` on
-  home).
-- Include the sticky site header on **every** page. `Request access` is a
-  dedicated `.site-access` link immediately after the brand; other guides live
-  in `.site-links`. When adding a guide, update the nav on **all** pages and
-  mark the current page with `aria-current="page"`.
-- Keep a centered readable column (`max-width: 42rem`). This is a sketch/docs
-  site, not an app UI mock.
+  home). Load IBM Plex Sans + Mono from Google Fonts on every page.
+- Every page uses the `.shell` layout: dark `.site-rail` sidebar (brand, tag,
+  `.site-nav`, bottom `.site-access` CTA) + `.page` content column. When adding
+  a guide, update the nav on **all** pages and mark the current page with
+  `aria-current="page"`.
+- Keep a readable content column (`max-width: 42rem`) beside the rail. Visual
+  system: Graphite utility — cool paper, blue accent (`#1769aa`), Plex only.
 - Prefer: eyebrow → title → short lede → note → numbered sections → checklist →
-  troubleshooting `<details>` → footer.
-- Reuse existing classes (`.card`, `.note`, `.callout`, `.cta`, `.path`, etc.)
-  before inventing new ones.
+  troubleshooting `<details>` → footer. Landing uses `.manifest` /
+  `.manifest-row` instead of grouped cards.
+- Reuse existing classes (`.card`, `.note`, `.callout`, `.cta`, `.path`,
+  `.manifest`, etc.) before inventing new ones.
 - External CTAs (forms, downloads) use `target="_blank"` and
   `rel="noopener noreferrer"`.
 
