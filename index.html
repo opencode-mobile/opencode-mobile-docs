@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCode Mobile Docs</title>
+<style>
+  :root {
+    --ink: #14201c;
+    --ink-soft: #3d4a45;
+    --muted: #6a7671;
+    --line: #d5ddd8;
+    --paper: #f3f6f4;
+    --card: #ffffff;
+    --accent: #0f6b5c;
+    --accent-soft: #d9efe9;
+    --shadow: 0 1px 0 rgba(20, 32, 28, 0.04), 0 12px 32px rgba(20, 32, 28, 0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #dceee8 0%, transparent 55%),
+      radial-gradient(900px 420px at 100% 0%, #e8efe4 0%, transparent 50%),
+      var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 48px 24px 80px;
+  }
+  .page { max-width: 42rem; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.55rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+  }
+  .lede {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 36rem;
+  }
+  a.card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  a.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  a.card strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+  a.card span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .footer {
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">OpenCode Mobile</div>
+    <h1>Docs</h1>
+    <p class="lede">
+      Public setup guides for the unofficial native clients. Product source stays in the private app repo.
+    </p>
+    <a class="card" href="./connecting/">
+      <strong>Connect to an opencode server</strong>
+      <span>Start the server, set up Tailscale, save a Connection Profile in the app.</span>
+    </a>
+    <p class="footer">
+      <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
+    </p>
+  </main>
+</body>
+</html>

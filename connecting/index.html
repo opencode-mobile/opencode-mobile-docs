@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect OpenCode Mobile</title>
+<style>
+  :root {
+    --ink: #14201c;
+    --ink-soft: #3d4a45;
+    --muted: #6a7671;
+    --line: #d5ddd8;
+    --paper: #f3f6f4;
+    --card: #ffffff;
+    --accent: #0f6b5c;
+    --accent-soft: #d9efe9;
+    --warn-bg: #fff6e8;
+    --warn-ink: #7a4a00;
+    --warn-line: #efd2a3;
+    --code-bg: #1a2622;
+    --code-ink: #e7f2ed;
+    --radius: 14px;
+    --shadow: 0 1px 0 rgba(20, 32, 28, 0.04), 0 12px 32px rgba(20, 32, 28, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #dceee8 0%, transparent 55%),
+      radial-gradient(900px 420px at 100% 0%, #e8efe4 0%, transparent 50%),
+      var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 32px 24px 80px;
+  }
+
+  .page {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.55rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+  }
+
+  .lede {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 36rem;
+  }
+
+  .path {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .path a {
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 12px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .path a:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .path .n {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .path strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+
+  .path span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .note {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+
+  .note a { color: var(--accent); font-weight: 500; }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .step-badge {
+    flex: 0 0 auto;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 12px;
+    background: var(--ink);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .section-head h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.015em;
+  }
+
+  .section-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card p {
+    margin: 0 0 12px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .callout {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-line);
+    color: var(--warn-ink);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    margin: 12px 0 0;
+  }
+
+  .callout strong { color: var(--ink); }
+
+  ol.clean, ul.clean {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+  }
+
+  ol.clean li, ul.clean li {
+    margin: 0.4rem 0;
+  }
+
+  ol.clean li::marker, ul.clean li::marker {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  pre {
+    margin: 0;
+    background: var(--code-bg);
+    color: var(--code-ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.86em;
+    background: #e7eee9;
+    color: #16352d;
+    padding: 0.1em 0.35em;
+    border-radius: 5px;
+  }
+
+  pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .url-pill {
+    display: inline-block;
+    margin-top: 4px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .option {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    background: #fafcfb;
+  }
+
+  .option.preferred {
+    border-color: #a9d5c9;
+    background: #f3faf7;
+  }
+
+  .option .label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .option h3 { margin-bottom: 6px; }
+  .option p { margin: 0; font-size: 0.9rem; }
+
+  details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  details summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 14px 16px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  details summary::-webkit-details-marker { display: none; }
+
+  details summary::after {
+    content: "+";
+    float: right;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  details[open] summary::after { content: "–"; }
+
+  details .body {
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .checklist li:last-child { border-bottom: 0; }
+
+  .box {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.2rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+    flex: 0 0 auto;
+    background: #fff;
+  }
+
+  .footer {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .footer a { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .path, .grid-2 { grid-template-columns: 1fr; }
+    body { padding: 24px 16px 64px; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <div class="eyebrow">Setup guide</div>
+    <h1>Connect OpenCode Mobile to your server</h1>
+    <p class="lede">
+      Three moves: start a password-protected opencode server, put the machine and phone on Tailscale, then save a Connection Profile in the app.
+    </p>
+
+    <nav class="path" aria-label="Steps">
+      <a href="#server">
+        <span class="n">1</span>
+        <strong>Start server</strong>
+        <span>Password + bind for remote</span>
+      </a>
+      <a href="#tailscale">
+        <span class="n">2</span>
+        <strong>Tailscale</strong>
+        <span>Same tailnet, get a URL</span>
+      </a>
+      <a href="#app">
+        <span class="n">3</span>
+        <strong>Connect app</strong>
+        <span>Test, then save</span>
+      </a>
+    </nav>
+
+    <p class="note">
+      The app does not create a tunnel or relay for you. You point it at a server you already run.
+      Full server docs: <a href="https://opencode.ai/docs/server/">opencode.ai/docs/server</a>
+    </p>
+
+    <section id="server">
+      <div class="section-head">
+        <div class="step-badge">1</div>
+        <div>
+          <h2>Start the opencode server</h2>
+          <p>On the machine that has your project</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Run this in your project</h3>
+        <p>Username defaults to <code>opencode</code>. Keep the process running while you use the phone.</p>
+        <pre><code>cd /path/to/your/project
+OPENCODE_SERVER_PASSWORD='choose-a-strong-password' \
+  opencode serve --hostname 0.0.0.0 --port 4096</code></pre>
+        <p class="callout">
+          <strong>Important:</strong> Default bind is <code>127.0.0.1</code> — phones cannot reach that.
+          Use <code>--hostname 0.0.0.0</code> for Tailscale or LAN.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Sanity check on the machine</h3>
+        <pre><code>curl -u "opencode:${OPENCODE_SERVER_PASSWORD}" \
+  http://127.0.0.1:4096/global/health</code></pre>
+        <p style="margin-top:12px;margin-bottom:0">Healthy JSON with a version string means the server is up. Spec UI: <code>http://127.0.0.1:4096/doc</code></p>
+      </div>
+
+      <details>
+        <summary>Simulator / emulator URLs</summary>
+        <div class="body">
+          <table>
+            <thead>
+              <tr><th>Target</th><th>Base URL</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>iOS Simulator (same Mac)</td><td><code>http://127.0.0.1:4096</code></td></tr>
+              <tr><td>Android emulator</td><td><code>http://10.0.2.2:4096</code></td></tr>
+              <tr><td>Physical phone</td><td>Tailscale URL in step 2</td></tr>
+            </tbody>
+          </table>
+          <p style="margin:12px 0 0;color:var(--ink-soft);font-size:0.92rem">
+            Don’t expose plain public HTTP on the open internet.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section id="tailscale">
+      <div class="section-head">
+        <div class="step-badge">2</div>
+        <div>
+          <h2>Set up Tailscale</h2>
+          <p>Phone and machine on one private network</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Install and sign in</h3>
+        <ol class="clean">
+          <li>Install Tailscale on the <strong>machine</strong> and the <strong>phone</strong> (<a href="https://tailscale.com/download">download</a>).</li>
+          <li>Sign both into the <strong>same</strong> Tailscale account.</li>
+          <li>Confirm both are online in the app or <a href="https://login.tailscale.com/admin/machines">admin console</a>.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Get the machine address</h3>
+        <pre><code>tailscale ip -4          # e.g. 100.x.y.z
+tailscale status         # MagicDNS name</code></pre>
+        <p style="margin-top:12px;margin-bottom:0">
+          Either the <code>100.x</code> IP or the MagicDNS name works once both devices are connected.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="option preferred">
+          <span class="label">Recommended</span>
+          <h3>Direct URL</h3>
+          <p>With the server bound to <code>0.0.0.0</code>, use:</p>
+          <div class="url-pill">http://100.x.y.z:4096</div>
+          <p style="margin-top:10px">or <code>http://my-mac….ts.net:4096</code></p>
+        </div>
+        <div class="option">
+          <span class="label">Optional</span>
+          <h3>Tailscale Serve</h3>
+          <p>Proxy localhost over HTTPS on the tailnet with <code>tailscale serve 4096</code>. Don’t use Funnel unless you want the public internet.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>Check from the phone browser first</h3>
+        <p>Open this while both devices are on Tailscale:</p>
+        <div class="url-pill">http://&lt;machine-ip&gt;:4096/global/health</div>
+        <p style="margin-top:12px;margin-bottom:0">
+          Auth prompt or JSON = good. If it never loads, fix Tailscale before debugging the app.
+        </p>
+      </div>
+
+      <details>
+        <summary>Tailscale Serve commands</summary>
+        <div class="body">
+          <pre><code># Terminal 1 — loopback is fine behind Serve
+OPENCODE_SERVER_PASSWORD='…' \
+  opencode serve --hostname 127.0.0.1 --port 4096
+
+# Terminal 2
+tailscale serve 4096</code></pre>
+          <p style="margin:12px 0 0;color:var(--ink-soft);font-size:0.92rem">
+            Use the HTTPS URL Tailscale prints. Needs HTTPS certs enabled for the tailnet.
+            See <a href="https://tailscale.com/docs/features/tailscale-serve">Tailscale Serve</a>.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section id="app">
+      <div class="section-head">
+        <div class="step-badge">3</div>
+        <div>
+          <h2>Connect the app</h2>
+          <p>Save one Connection Profile on the device</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>In OpenCode Mobile</h3>
+        <ol class="clean">
+          <li>Open the app → <strong>Connect to server</strong>.</li>
+          <li>Enter URL (from step 2), username <code>opencode</code>, and your password.</li>
+          <li>Tap <strong>Test connection</strong> (calls <code>GET /global/health</code>).</li>
+          <li>When it succeeds, tap <strong>Save</strong>.</li>
+        </ol>
+        <p style="margin-top:12px;margin-bottom:0">
+          Password is stored in Keychain / Keystore. Edit later in Settings → Server Connection.
+        </p>
+      </div>
+
+      <details>
+        <summary>If something fails</summary>
+        <div class="body">
+          <table>
+            <thead>
+              <tr><th>Symptom</th><th>Likely cause</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Unreachable / timeout</td>
+                <td>Server down; still on <code>127.0.0.1</code>; Tailscale offline; wrong IP/port</td>
+              </tr>
+              <tr>
+                <td>Authentication failed</td>
+                <td>Wrong password or username</td>
+              </tr>
+              <tr>
+                <td>Works in simulator, not phone</td>
+                <td>Phone needs Tailscale URL, not localhost</td>
+              </tr>
+              <tr>
+                <td>Android emulator can’t reach host</td>
+                <td>Use <code>http://10.0.2.2:4096</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div class="step-badge">✓</div>
+        <div>
+          <h2>Checklist</h2>
+          <p>Printable mental model</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span><code>OPENCODE_SERVER_PASSWORD</code> set</span></li>
+          <li><span class="box" aria-hidden="true"></span><span><code>opencode serve</code> listening (<code>0.0.0.0:4096</code>, or loopback + Serve)</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Tailscale connected on machine and phone</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Health URL opens in the phone browser</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>App test succeeds, then Save</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="footer">
+      Part of <a href="../">OpenCode Mobile docs</a> · mirrored from the private app repo
+    </p>
+  </main>
+</body>
+</html>
