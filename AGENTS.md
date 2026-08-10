@@ -34,9 +34,10 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 - Self-contained HTML; shared look via `../assets/site.css` (or `./assets/` on
   home).
-- Include the sticky site header on **every** page. When adding a guide, update
-  the nav links on **all** existing pages plus the new one, and mark the current
-  page with `aria-current="page"`.
+- Include the sticky site header on **every** page. `Request access` is a
+  dedicated `.site-access` link immediately after the brand; other guides live
+  in `.site-links`. When adding a guide, update the nav on **all** pages and
+  mark the current page with `aria-current="page"`.
 - Keep a centered readable column (`max-width: 42rem`). This is a sketch/docs
   site, not an app UI mock.
 - Prefer: eyebrow → title → short lede → note → numbered sections → checklist →
