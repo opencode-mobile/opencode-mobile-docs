@@ -10,6 +10,7 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 
 | Path | Guide |
 | --- | --- |
+| [`request-access/`](./request-access/) | Request TestFlight / Firebase tester access |
 | [`install-testflight/`](./install-testflight/) | Install iOS via TestFlight Internal Testing |
 | [`install-firebase-ios/`](./install-firebase-ios/) | Install iOS via Firebase App Distribution |
 | [`install-firebase-android/`](./install-firebase-android/) | Install Android via Firebase App Distribution |
