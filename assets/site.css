@@ -103,14 +103,18 @@ body {
 .site-access {
   margin-top: auto;
   display: block;
+  width: 100%;
   text-align: center;
   text-decoration: none;
   background: var(--accent);
   color: #fff;
+  font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
   padding: 11px 14px;
+  border: 0;
   border-radius: 8px;
+  cursor: pointer;
   transition: background 0.15s ease;
 }
 
@@ -536,6 +540,28 @@ th {
 
 .footer a { color: var(--accent); }
 
+.figure {
+  margin: 0 0 36px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.figure figcaption {
+  padding: 10px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .group-label {
   display: inline-block;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -554,12 +580,15 @@ th {
   gap: 8px;
   margin-top: 4px;
   padding: 12px 18px;
+  border: 0;
   border-radius: 8px;
   background: var(--ink);
   color: #fff;
   text-decoration: none;
+  font-family: inherit;
   font-weight: 600;
   font-size: 0.95rem;
+  cursor: pointer;
   transition: background 0.15s ease;
 }
 
@@ -573,6 +602,97 @@ th {
   color: var(--accent);
   font-weight: 500;
   font-size: 0.92rem;
+}
+
+.dialog-backdrop::backdrop {
+  background: rgba(18, 22, 28, 0.48);
+}
+
+.dialog-backdrop {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
+  padding: 0;
+  width: min(24rem, calc(100vw - 2rem));
+  box-shadow: none;
+}
+
+.dialog-backdrop[open] {
+  display: block;
+}
+
+.dialog-panel {
+  padding: 20px 20px 18px;
+}
+
+.dialog-panel h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.dialog-panel > p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.dialog-choices {
+  display: grid;
+  gap: 10px;
+}
+
+.dialog-choice {
+  display: block;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  background: #f7f9fb;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dialog-choice:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.dialog-choice strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.dialog-choice span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.dialog-dismiss {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dialog-dismiss:hover {
+  color: var(--ink);
 }
 
 @media (max-width: 860px) {

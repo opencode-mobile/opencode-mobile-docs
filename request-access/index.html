@@ -16,20 +16,19 @@
       <div class="site-tag">Operator index</div>
       <nav class="site-nav" aria-label="Site">
         <a href="../">Overview</a>
-        <a href="../request-access/" aria-current="page">Request access</a>
+        <a href="../request-access/#choose" aria-current="page">Request access</a>
         <a href="../install-testflight/">Install · TestFlight</a>
-        <a href="../install-firebase-ios/">Install · Firebase iOS</a>
-        <a href="../install-firebase-android/">Install · Firebase Android</a>
+        <a href="../install-play-internal/">Install · Play Internal</a>
         <a href="../connecting/">Connect</a>
       </nav>
-      <a class="site-access" href="../request-access/" aria-current="page">Request access</a>
+      <button type="button" class="site-access" data-open-platform-dialog aria-current="page">Request access</button>
     </aside>
     <main class="page">
     <div class="eyebrow">Testers</div>
     <h1>Request access</h1>
     <p class="lede">
-      Builds are private. Fill out the form to ask for TestFlight or Firebase
-      App Distribution access for OpenCode Mobile — Unofficial.
+      Builds are private. Choose your platform — Android goes straight to Play
+      Internal testing; iOS uses a short access form for TestFlight.
     </p>
 
     <p class="note">
@@ -41,14 +40,13 @@
       <div class="card">
         <h3>What happens next</h3>
         <ol class="clean">
-          <li>Submit the Google Form with your details and preferred platform.</li>
-          <li>Wait for an invite (App Store Connect, TestFlight, or Firebase tester email).</li>
-          <li>Install with the matching guide, then point the app at your server.</li>
+          <li>Choose <strong>Android</strong> or <strong>iOS</strong>.</li>
+          <li><strong>Android:</strong> open the Play Internal testing guide and opt in with your invited Google account.</li>
+          <li><strong>iOS:</strong> submit the access form, wait for a TestFlight invite, then install.</li>
         </ol>
         <p style="margin-top:16px;margin-bottom:0">
-          <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLScnVuK5Br-KCg8o5OdnmtQ8U9RamhMgAB_VFaZukGPj6frYjg/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Open request form</a>
+          <button type="button" class="cta" data-open-platform-dialog>Request access</button>
         </p>
-        <a class="cta-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLScnVuK5Br-KCg8o5OdnmtQ8U9RamhMgAB_VFaZukGPj6frYjg/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">docs.google.com/forms/…</a>
       </div>
     </section>
 
@@ -65,13 +63,9 @@
           <strong>TestFlight</strong>
           <span>iOS Internal Testing for App Store Connect team members.</span>
         </a>
-        <a class="card" href="../install-firebase-ios/">
-          <strong>Firebase — iOS</strong>
-          <span>Private Ad Hoc builds for <code>ios-internal</code>.</span>
-        </a>
-        <a class="card" href="../install-firebase-android/">
-          <strong>Firebase — Android</strong>
-          <span>Private APK builds for <code>android-internal</code>.</span>
+        <a class="card" href="../install-play-internal/">
+          <strong>Play Internal Testing</strong>
+          <span>Android Internal testing on Google Play.</span>
         </a>
       </div>
     </section>
@@ -82,5 +76,86 @@
     </p>
   </main>
   </div>
+
+  <dialog class="dialog-backdrop" id="platform-dialog" aria-labelledby="platform-dialog-title">
+    <div class="dialog-panel">
+      <h2 id="platform-dialog-title">Choose your platform</h2>
+      <p>Where do you want to install OpenCode Mobile?</p>
+      <div class="dialog-choices">
+        <button type="button" class="dialog-choice" data-platform="ios">
+          <strong>iOS</strong>
+          <span>Request TestFlight access via the form</span>
+        </button>
+        <a class="dialog-choice" href="../install-play-internal/" data-platform="android">
+          <strong>Android</strong>
+          <span>Go to Play Internal testing</span>
+        </a>
+      </div>
+      <button type="button" class="dialog-dismiss" data-close-platform-dialog>Cancel</button>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      var dialog = document.getElementById("platform-dialog");
+      if (!dialog) return;
+
+      var formUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLScnVuK5Br-KCg8o5OdnmtQ8U9RamhMgAB_VFaZukGPj6frYjg/viewform?usp=publish-editor";
+
+      function openDialog() {
+        if (typeof dialog.showModal === "function") {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute("open", "");
+        }
+      }
+
+      function closeDialog() {
+        if (typeof dialog.close === "function") {
+          dialog.close();
+        } else {
+          dialog.removeAttribute("open");
+        }
+      }
+
+      document.querySelectorAll("[data-open-platform-dialog]").forEach(function (el) {
+        el.addEventListener("click", function (event) {
+          event.preventDefault();
+          openDialog();
+        });
+      });
+
+      document.querySelectorAll("[data-close-platform-dialog]").forEach(function (el) {
+        el.addEventListener("click", closeDialog);
+      });
+
+      var iosChoice = dialog.querySelector('[data-platform="ios"]');
+      if (iosChoice) {
+        iosChoice.addEventListener("click", function () {
+          closeDialog();
+          window.open(formUrl, "_blank", "noopener,noreferrer");
+        });
+      }
+
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) closeDialog();
+      });
+
+      if (window.location.hash === "#choose") {
+        openDialog();
+      }
+
+      window.addEventListener("hashchange", function () {
+        if (window.location.hash === "#choose") openDialog();
+      });
+
+      dialog.addEventListener("close", function () {
+        if (window.location.hash === "#choose") {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

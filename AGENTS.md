@@ -23,10 +23,9 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `index.html` | Landing page with manifest index |
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
-| `request-access/` | Google Form CTA for tester access |
+| `request-access/` | Platform chooser → iOS form / Android Play guide |
 | `install-testflight/` | iOS TestFlight Internal Testing |
-| `install-firebase-ios/` | iOS Firebase App Distribution (`ios-internal`) |
-| `install-firebase-android/` | Android Firebase App Distribution (`android-internal`) |
+| `install-play-internal/` | Android Google Play Internal testing |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
 
@@ -52,10 +51,10 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 - Tester-facing only. No CI secrets, signing keys, service-account JSON, or
   operator-only runbook internals.
-- Safe to name private groups (`ios-internal`, `android-internal`) and channels
-  (TestFlight Internal, Firebase App Distribution) when that helps install
-  steps.
-- Emphasize invite-only access; do not invent public invite links.
+- Safe to name private channels (TestFlight Internal, Play Internal testing)
+  when that helps install steps.
+- Emphasize invite-only access; the Play Internal testing opt-in URL still
+  requires the Google account to be on the tester list.
 - Point “after install” flows at `connecting/`.
 - Point “not invited yet” flows at `request-access/`.
 - Prefer Tailscale (or other user-managed transport) for reaching `opencode

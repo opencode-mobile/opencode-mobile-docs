@@ -10,10 +10,9 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 
 | Path | Guide |
 | --- | --- |
-| [`request-access/`](./request-access/) | Request TestFlight / Firebase tester access |
+| [`request-access/`](./request-access/) | Choose platform → iOS form / Android Play guide |
 | [`install-testflight/`](./install-testflight/) | Install iOS via TestFlight Internal Testing |
-| [`install-firebase-ios/`](./install-firebase-ios/) | Install iOS via Firebase App Distribution |
-| [`install-firebase-android/`](./install-firebase-android/) | Install Android via Firebase App Distribution |
+| [`install-play-internal/`](./install-play-internal/) | Install Android via Play Internal testing |
 | [`connecting/`](./connecting/) | Start opencode serve, Tailscale, connect the app |
 
 ## Local preview

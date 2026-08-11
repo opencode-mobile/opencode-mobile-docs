@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install via Play Internal Testing — OpenCode Mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="site-rail">
+      <a class="site-brand" href="../">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="../">Overview</a>
+        <a href="../request-access/#choose">Request access</a>
+        <a href="../install-testflight/">Install · TestFlight</a>
+        <a href="../install-play-internal/" aria-current="page">Install · Play Internal</a>
+        <a href="../connecting/">Connect</a>
+      </nav>
+      <a class="site-access" href="../request-access/#choose">Request access</a>
+    </aside>
+    <main class="page">
+    <div class="eyebrow">Android · install</div>
+    <h1>Install via Play Internal Testing</h1>
+    <p class="lede">
+      Get <strong>OpenCode Mobile — Unofficial</strong> through Google Play
+      <em>Internal testing</em>. This is a private tester channel — not the public Play Store listing.
+    </p>
+
+    <p class="note">
+      Access is invite-only. Your Google account must be on the internal testing
+      list before the opt-in link works. Need an invite?
+      <a href="../request-access/#choose">Request access</a>.
+      After install, follow the <a href="../connecting/">connection guide</a>.
+    </p>
+
+    <figure class="figure">
+      <img
+        src="../assets/android-screenshots.png"
+        alt="Three Android screenshots of OpenCode Mobile: sessions list, chat with code, and a status update prompt"
+        width="4577"
+        height="2601"
+        loading="lazy"
+        decoding="async"
+      >
+      <figcaption>OpenCode Mobile on Android — sessions, chat, and project prompts</figcaption>
+    </figure>
+
+    <section id="before">
+      <div class="section-head">
+        <div class="step-badge">0</div>
+        <div>
+          <h2>Before you start</h2>
+          <p>What you need on the device</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="clean">
+          <li>A physical Android device (or emulator) signed into the Google account that was invited</li>
+          <li>The <strong>Google Play Store</strong> app</li>
+          <li>Your email already added to Play Internal testing</li>
+        </ul>
+        <p class="callout">
+          <strong>Coming from an older sideloaded / Firebase APK?</strong> Uninstall that
+          copy first. Different signing certificates won’t update in place.
+        </p>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <div class="step-badge">1</div>
+        <div>
+          <h2>Join Internal testing and install</h2>
+          <p>On your physical device</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Steps</h3>
+        <ol class="clean">
+          <li>On the device, open the Play Internal testing opt-in link while signed into your invited Google account.</li>
+          <li>Accept the tester invite if prompted.</li>
+          <li>Open the app listing for <strong>OpenCode Mobile — Unofficial</strong>.</li>
+          <li>Tap <strong>Install</strong> (or <strong>Update</strong>).</li>
+          <li>Launch the app from Play or the app drawer.</li>
+        </ol>
+        <p style="margin-top:16px;margin-bottom:0">
+          <a class="cta" href="https://play.google.com/apps/internaltest/4701255816217600017" target="_blank" rel="noopener noreferrer">Open Internal testing link</a>
+        </p>
+        <a class="cta-secondary" href="https://play.google.com/apps/internaltest/4701255816217600017" target="_blank" rel="noopener noreferrer">play.google.com/apps/internaltest/…</a>
+      </div>
+    </section>
+
+    <section id="next">
+      <div class="section-head">
+        <div class="step-badge">2</div>
+        <div>
+          <h2>After install</h2>
+          <p>Point the app at your opencode server</p>
+        </div>
+      </div>
+      <div class="card">
+        <ol class="clean">
+          <li>Open the app and complete or skip onboarding if shown.</li>
+          <li>Follow <a href="../connecting/">Connect to an opencode server</a> (Tailscale recommended).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div class="step-badge">✓</div>
+        <div>
+          <h2>Checklist</h2>
+          <p>Quick confirmation</p>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li><span class="box" aria-hidden="true"></span><span>Google account invited to Internal testing</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Opted in via the testing link</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Old sideloaded copy uninstalled if switching</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>App installs and opens from Play</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <details>
+      <summary>Troubleshooting</summary>
+      <div class="body">
+        <table>
+          <thead>
+            <tr><th>Symptom</th><th>Likely cause</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Opt-in page says you’re not a tester</td>
+              <td>Email not on the Internal testing list; wrong Google account signed in on the device</td>
+            </tr>
+            <tr>
+              <td>App listing missing or Install unavailable</td>
+              <td>Not opted in yet; Play still syncing after invite; wrong account in Play Store</td>
+            </tr>
+            <tr>
+              <td>Install fails / “App not installed”</td>
+              <td>Existing sideloaded build still installed — uninstall it, then install from Play</td>
+            </tr>
+            <tr>
+              <td>Only an old build shows</td>
+              <td>Newer internal release not rolled out yet; wait or check with the maintainer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <p class="footer">
+      <a href="../">All docs</a>
+      · <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
+    </p>
+  </main>
+  </div>
+</body>
+</html>
