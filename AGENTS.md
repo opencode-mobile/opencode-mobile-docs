@@ -25,7 +25,7 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
 | `request-access/` | Platform chooser → iOS form / Android self-invite |
 | `install-testflight/` | iOS TestFlight Internal Testing |
-| `install-play-internal/` | Android: Google Group + Play Internal testing |
+| `install-play-internal/` | Android: Google Group + Play Closed testing |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
 
@@ -51,10 +51,11 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 - Tester-facing only. No CI secrets, signing keys, service-account JSON, or
   operator-only runbook internals.
-- Safe to name private channels (TestFlight Internal, Play Internal testing)
+- Safe to name private channels (TestFlight Internal, Play Closed testing)
   when that helps install steps.
-- Android Play Internal is self-invite: join Google Group
-  `opencode-mobile-testers` (Anyone can join), then use the Play opt-in URL with
+- Android Play Closed is self-invite: join Google Group
+  `opencode-mobile-testers` (Anyone can join), then open the Play Store listing
+  (`https://play.google.com/store/apps/details?id=dev.opencode.mobile`) with
   the same Google account. Do not tell Android testers to wait for a manual
   email add.
 - iOS TestFlight Internal remains invite-only via the access form / ASC team.

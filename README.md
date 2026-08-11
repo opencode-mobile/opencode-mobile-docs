@@ -12,7 +12,7 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 | --- | --- |
 | [`request-access/`](./request-access/) | Choose platform → iOS form / Android self-invite |
 | [`install-testflight/`](./install-testflight/) | Install iOS via TestFlight Internal Testing |
-| [`install-play-internal/`](./install-play-internal/) | Android: Google Group + Play Internal testing |
+| [`install-play-internal/`](./install-play-internal/) | Android: Google Group + Play Closed testing |
 | [`connecting/`](./connecting/) | Start opencode serve, Tailscale, connect the app |
 
 ## Local preview
