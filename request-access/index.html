@@ -16,12 +16,12 @@
       <div class="site-tag">Operator index</div>
       <nav class="site-nav" aria-label="Site">
         <a href="../">Overview</a>
-        <a href="../request-access/#choose" aria-current="page">Request access</a>
+        <a href="../request-access/" aria-current="page">Request access</a>
         <a href="../install-testflight/">Install · TestFlight</a>
         <a href="../install-play-internal/">Install · Play Internal</a>
         <a href="../connecting/">Connect</a>
       </nav>
-      <button type="button" class="site-access" data-open-platform-dialog aria-current="page">Request access</button>
+      <a class="site-access" href="../request-access/" aria-current="page">Request access</a>
     </aside>
     <main class="page">
     <div class="eyebrow">Testers</div>
@@ -140,20 +140,6 @@
 
       dialog.addEventListener("click", function (event) {
         if (event.target === dialog) closeDialog();
-      });
-
-      if (window.location.hash === "#choose") {
-        openDialog();
-      }
-
-      window.addEventListener("hashchange", function () {
-        if (window.location.hash === "#choose") openDialog();
-      });
-
-      dialog.addEventListener("close", function () {
-        if (window.location.hash === "#choose") {
-          history.replaceState(null, "", window.location.pathname + window.location.search);
-        }
       });
     })();
   </script>
