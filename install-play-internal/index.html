@@ -32,22 +32,30 @@
     </p>
 
     <p class="note">
-      Access is invite-only. Your Google account must be on the internal testing
-      list before the opt-in link works. Need an invite?
-      <a href="../request-access/">Request access</a>.
-      After install, follow the <a href="../connecting/">connection guide</a>.
+      Self-invite in two steps: join the tester Google Group, then open the Play
+      opt-in link with the <strong>same</strong> Google account. Cap is 100
+      Internal testers. After install, follow the
+      <a href="../connecting/">connection guide</a>.
     </p>
 
     <figure class="figure">
-      <img
-        src="../assets/android-screenshots.png"
-        alt="Three Android screenshots of OpenCode Mobile: sessions list, chat with code, and a status update prompt"
-        width="4577"
-        height="2601"
-        loading="lazy"
-        decoding="async"
+      <button
+        type="button"
+        class="figure-expand"
+        data-lightbox-src="../assets/android-screenshots.png"
+        data-lightbox-alt="Three Android screenshots of OpenCode Mobile: sessions list, chat with code, and a status update prompt"
+        aria-label="Expand Android screenshots"
       >
-      <figcaption>OpenCode Mobile on Android — sessions, chat, and project prompts</figcaption>
+        <img
+          src="../assets/android-screenshots.png"
+          alt="Three Android screenshots of OpenCode Mobile: sessions list, chat with code, and a status update prompt"
+          width="4577"
+          height="2601"
+          loading="lazy"
+          decoding="async"
+        >
+      </button>
+      <figcaption>OpenCode Mobile on Android — sessions, chat, and project prompts. Click to expand.</figcaption>
     </figure>
 
     <section id="before">
@@ -60,9 +68,9 @@
       </div>
       <div class="card">
         <ul class="clean">
-          <li>A physical Android device (or emulator) signed into the Google account that was invited</li>
+          <li>A physical Android device (or emulator) signed into Google Play</li>
           <li>The <strong>Google Play Store</strong> app</li>
-          <li>Your email already added to Play Internal testing</li>
+          <li>One Google account used for both the group join and the Play opt-in</li>
         </ul>
         <p class="callout">
           <strong>Coming from an older sideloaded / Firebase APK?</strong> Uninstall that
@@ -71,9 +79,32 @@
       </div>
     </section>
 
-    <section id="install">
+    <section id="join-group">
       <div class="section-head">
         <div class="step-badge">1</div>
+        <div>
+          <h2>Join the tester Google Group</h2>
+          <p>This puts your account on the Play Internal testing list</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Steps</h3>
+        <ol class="clean">
+          <li>Open the group link while signed into the Google account you use on the Android device.</li>
+          <li>Join <strong>OpenCode Mobile Testers</strong> (anyone can join).</li>
+          <li>Wait a few minutes if Play still says you’re not a tester — group membership can take a short while to sync (occasionally longer).</li>
+        </ol>
+        <p style="margin-top:16px;margin-bottom:0">
+          <a class="cta" href="https://groups.google.com/g/opencode-mobile-testers" target="_blank" rel="noopener noreferrer">Join OpenCode Mobile Testers</a>
+        </p>
+        <a class="cta-secondary" href="https://groups.google.com/g/opencode-mobile-testers" target="_blank" rel="noopener noreferrer">groups.google.com/g/opencode-mobile-testers</a>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <div class="step-badge">2</div>
         <div>
           <h2>Join Internal testing and install</h2>
           <p>On your physical device</p>
@@ -83,8 +114,8 @@
       <div class="card">
         <h3>Steps</h3>
         <ol class="clean">
-          <li>On the device, open the Play Internal testing opt-in link while signed into your invited Google account.</li>
-          <li>Accept the tester invite if prompted.</li>
+          <li>Open the Play Internal testing opt-in link while signed into the <strong>same</strong> Google account.</li>
+          <li>Tap <strong>Become a tester</strong> / accept the invite if prompted.</li>
           <li>Open the app listing for <strong>OpenCode Mobile — Unofficial</strong>.</li>
           <li>Tap <strong>Install</strong> (or <strong>Update</strong>).</li>
           <li>Launch the app from Play or the app drawer.</li>
@@ -98,7 +129,7 @@
 
     <section id="next">
       <div class="section-head">
-        <div class="step-badge">2</div>
+        <div class="step-badge">3</div>
         <div>
           <h2>After install</h2>
           <p>Point the app at your opencode server</p>
@@ -122,8 +153,8 @@
       </div>
       <div class="card">
         <ul class="checklist">
-          <li><span class="box" aria-hidden="true"></span><span>Google account invited to Internal testing</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>Opted in via the testing link</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Joined the OpenCode Mobile Testers Google Group</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Opted in via the Play Internal testing link (same account)</span></li>
           <li><span class="box" aria-hidden="true"></span><span>Old sideloaded copy uninstalled if switching</span></li>
           <li><span class="box" aria-hidden="true"></span><span>App installs and opens from Play</span></li>
           <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
@@ -141,11 +172,11 @@
           <tbody>
             <tr>
               <td>Opt-in page says you’re not a tester</td>
-              <td>Email not on the Internal testing list; wrong Google account signed in on the device</td>
+              <td>Not yet in the Google Group; group membership still syncing; wrong Google account signed in on the device</td>
             </tr>
             <tr>
               <td>App listing missing or Install unavailable</td>
-              <td>Not opted in yet; Play still syncing after invite; wrong account in Play Store</td>
+              <td>Not opted in yet; Play still syncing after join; wrong account in Play Store</td>
             </tr>
             <tr>
               <td>Install fails / “App not installed”</td>
@@ -154,6 +185,10 @@
             <tr>
               <td>Only an old build shows</td>
               <td>Newer internal release not rolled out yet; wait or check with the maintainer</td>
+            </tr>
+            <tr>
+              <td>Joined the group but Play still rejects you after an hour+</td>
+              <td>Confirm the Play Store account matches the group membership; try the opt-in link again later or ask the maintainer</td>
             </tr>
           </tbody>
         </table>
@@ -166,5 +201,6 @@
     </p>
   </main>
   </div>
+  <script src="../assets/lightbox.js" defer></script>
 </body>
 </html>

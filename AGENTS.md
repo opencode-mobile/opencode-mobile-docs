@@ -23,9 +23,9 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `index.html` | Landing page with manifest index |
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
-| `request-access/` | Platform chooser → iOS form / Android Play guide |
+| `request-access/` | Platform chooser → iOS form / Android self-invite |
 | `install-testflight/` | iOS TestFlight Internal Testing |
-| `install-play-internal/` | Android Google Play Internal testing |
+| `install-play-internal/` | Android: Google Group + Play Internal testing |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
 
@@ -53,10 +53,13 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
   operator-only runbook internals.
 - Safe to name private channels (TestFlight Internal, Play Internal testing)
   when that helps install steps.
-- Emphasize invite-only access; the Play Internal testing opt-in URL still
-  requires the Google account to be on the tester list.
+- Android Play Internal is self-invite: join Google Group
+  `opencode-mobile-testers` (Anyone can join), then use the Play opt-in URL with
+  the same Google account. Do not tell Android testers to wait for a manual
+  email add.
+- iOS TestFlight Internal remains invite-only via the access form / ASC team.
 - Point “after install” flows at `connecting/`.
-- Point “not invited yet” flows at `request-access/`.
+- Point platform chooser / “not on a build yet” flows at `request-access/`.
 - Prefer Tailscale (or other user-managed transport) for reaching `opencode
   serve`; the app does not create a relay.
 - Call out the `opencode serve` default bind (`127.0.0.1`) and the need for
