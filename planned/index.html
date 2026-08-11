@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planned work — OpenCode Mobile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="site-rail">
+      <a class="site-brand" href="../">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="../">Overview</a>
+        <a href="../request-access/">Request access</a>
+        <a href="../install-testflight/">Install · TestFlight</a>
+        <a href="../install-play-internal/">Install · Play Closed</a>
+        <a href="../connecting/">Connect</a>
+        <a href="../planned/" aria-current="page">Planned</a>
+      </nav>
+      <a class="site-access" href="../request-access/">Request access</a>
+    </aside>
+    <main class="page">
+      <div class="eyebrow">Roadmap</div>
+      <h1>Planned work</h1>
+      <p class="lede">
+        Features and product work lined up after the current invite builds.
+        Ordered by priority so you can see what is next versus later.
+      </p>
+
+      <p class="note">
+        This is a living snapshot, not a ship date. Order and scope can change as
+        testing feedback comes in. Release plumbing and private operator work stay off this list.
+      </p>
+
+      <section id="next">
+        <div class="section-head">
+          <div class="step-badge">1</div>
+          <div>
+            <h2>Next up</h2>
+            <p>Higher priority — earliest you should expect</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Composer agent picker</h3>
+          <p>
+            Choose any primary agent from the connected server — including your
+            custom agents — instead of only Build and Plan. Matches how desktop
+            and TUI already cycle agents from server config.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Fork session from chat</h3>
+          <p>
+            Fork the open session from the overflow menu, or fork from a specific
+            outgoing message. Name the fork, then open it or stay on the original.
+          </p>
+        </div>
+      </section>
+
+      <section id="planned">
+        <div class="section-head">
+          <div class="step-badge">2</div>
+          <div>
+            <h2>Planned</h2>
+            <p>On the list after the next-up items</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>@ file mentions</h3>
+          <p>
+            Type <code>@</code> in the composer to fuzzy-match project files and
+            insert structured file references into a prompt, alongside agent mentions.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>File browser</h3>
+          <p>
+            Browse directories and open file contents for the active project on the
+            connected server. Viewer-first; editing is out of scope for this slice.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Session export</h3>
+          <p>
+            Export an open session for sharing or archival (Markdown, JSON, or the
+            system share sheet — format still to be locked).
+          </p>
+        </div>
+      </section>
+
+      <section id="later">
+        <div class="section-head">
+          <div class="step-badge">3</div>
+          <div>
+            <h2>Later</h2>
+            <p>Useful, but lower priority or still scoping</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>MCP server list</h3>
+          <p>
+            Read-only list of MCP servers configured on the connected opencode
+            server, with status. Connect / OAuth / tool invocation UI comes later.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Remote terminal</h3>
+          <p>
+            Some form of remote shell against the server host — interactive PTY,
+            one-shot shell commands in chat, or shell-output rendering. Product
+            shape is still open; not all three will ship together.
+          </p>
+        </div>
+      </section>
+
+      <p class="note">
+        <strong>Not a ship calendar.</strong>
+        No public store dates, no promise that every item lands in this order,
+        and no CI / signing / operator-only release work on this page.
+      </p>
+
+      <p class="footer">
+        Already on a build? <a href="../connecting/">Connect to your server</a>
+        · Not invited yet? <a href="../request-access/">Request access</a>
+      </p>
+    </main>
+  </div>
+</body>
+</html>

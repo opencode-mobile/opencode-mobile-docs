@@ -26,6 +26,7 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `request-access/` | Platform chooser → iOS form / Android self-invite |
 | `install-testflight/` | iOS TestFlight Internal Testing |
 | `install-play-internal/` | Android: Google Group + Play Closed testing |
+| `planned/` | Prioritized public backlog of planned features |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
 
