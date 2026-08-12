@@ -47,6 +47,23 @@
         </div>
 
         <div class="card">
+          <h3>OpenCode v2 server support</h3>
+          <p>
+            Connect to both classic OpenCode servers and newer v2 servers without
+            changing how you use the app. Protocol is detected on connect so newer
+            OpenCode installs stop failing as a pure v1 client.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Collapse consecutive tool calls</h3>
+          <p>
+            Optionally fold back-to-back tool calls in Session Chat into one summary
+            card. Toggle under Settings → Appearance; off by default.
+          </p>
+        </div>
+
+        <div class="card">
           <h3>Composer agent picker</h3>
           <p>
             Choose any primary agent from the connected server — including your
@@ -74,18 +91,18 @@
         </div>
 
         <div class="card">
-          <h3>@ file mentions</h3>
-          <p>
-            Type <code>@</code> in the composer to fuzzy-match project files and
-            insert structured file references into a prompt, alongside agent mentions.
-          </p>
-        </div>
-
-        <div class="card">
           <h3>File browser</h3>
           <p>
             Browse directories and open file contents for the active project on the
             connected server. Viewer-first; editing is out of scope for this slice.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>@ file mentions</h3>
+          <p>
+            Type <code>@</code> in the composer to fuzzy-match project files and
+            insert structured file references into a prompt, alongside agent mentions.
           </p>
         </div>
 
@@ -108,19 +125,19 @@
         </div>
 
         <div class="card">
-          <h3>MCP server list</h3>
-          <p>
-            Read-only list of MCP servers configured on the connected opencode
-            server, with status. Connect / OAuth / tool invocation UI comes later.
-          </p>
-        </div>
-
-        <div class="card">
           <h3>Remote terminal</h3>
           <p>
             Some form of remote shell against the server host — interactive PTY,
             one-shot shell commands in chat, or shell-output rendering. Product
             shape is still open; not all three will ship together.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>MCP server list</h3>
+          <p>
+            Read-only list of MCP servers configured on the connected opencode
+            server, with status. Connect / OAuth / tool invocation UI comes later.
           </p>
         </div>
       </section>
