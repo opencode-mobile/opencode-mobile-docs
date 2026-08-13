@@ -23,10 +23,10 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `index.html` | Landing page with manifest index |
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
-| `request-access/` | Platform chooser → iOS TestFlight join / Android self-invite |
 | `install-testflight/` | iOS TestFlight public join link |
 | `install-play-internal/` | Android: Google Group + Play Closed testing |
 | `planned/` | Prioritized public backlog of planned features |
+| `request-access/` | Legacy URL; redirects to the docs home |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
 
@@ -35,9 +35,9 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 - Self-contained HTML; shared look via `../assets/site.css` (or `./assets/` on
   home). Load IBM Plex Sans + Mono from Google Fonts on every page.
 - Every page uses the `.shell` layout: dark `.site-rail` sidebar (brand, tag,
-  `.site-nav`, bottom `.site-access` CTA) + `.page` content column. When adding
-  a guide, update the nav on **all** pages and mark the current page with
-  `aria-current="page"`.
+  `.site-nav`, bottom `.site-access` CTA pointing at `connecting/`) + `.page`
+  content column. When adding a guide, update the nav on **all** pages and
+  mark the current page with `aria-current="page"`.
 - Keep a readable content column (`max-width: 42rem`) beside the rail. Visual
   system: Graphite utility — cool paper, blue accent (`#1769aa`), Plex only.
 - Prefer: eyebrow → title → short lede → note → numbered sections → checklist →
@@ -64,7 +64,8 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
   TestFlight if needed), then accept and install. Do not tell iOS testers to
   wait for a form, email, or App Store Connect team add.
 - Point “after install” flows at `connecting/`.
-- Point platform chooser / “not on a build yet” flows at `request-access/`.
+- Point “need a build” at `install-testflight/` (iOS) or
+  `install-play-internal/` (Android). There is no access-request form.
 - Prefer Tailscale (or other user-managed transport) for reaching `opencode
   serve`; the app does not create a relay.
 - Call out the `opencode serve` default bind (`127.0.0.1`) and the need for
