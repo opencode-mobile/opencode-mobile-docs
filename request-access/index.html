@@ -28,15 +28,15 @@
     <div class="eyebrow">Testers</div>
     <h1>Request access</h1>
     <p class="lede">
-      Builds are private. Choose your platform — Android self-invites via a
-      Google Group + Play Closed testing; iOS uses a short access form for
-      TestFlight.
+      Builds are closed testing, not public store listings. Choose your
+      platform — both are self-invite: iOS via a TestFlight join link, Android
+      via a Google Group + Play Closed testing.
     </p>
 
     <p class="note">
-      Android: join the tester group yourself, then install from the Play Store
-      listing. iOS: submit the form and wait for a TestFlight invite. Then
-      <a href="../connecting/">connect to your opencode server</a>.
+      iOS: open the TestFlight join link on your device, then install. Android:
+      join the tester group yourself, then install from the Play Store listing.
+      Then <a href="../connecting/">connect to your opencode server</a>.
     </p>
 
     <section>
@@ -44,8 +44,8 @@
         <h3>What happens next</h3>
         <ol class="clean">
           <li>Choose <strong>Android</strong> or <strong>iOS</strong>.</li>
+          <li><strong>iOS:</strong> open the TestFlight guide — join with the public link, then install.</li>
           <li><strong>Android:</strong> open the Play Closed guide — join the Google Group, then the Play Store listing.</li>
-          <li><strong>iOS:</strong> submit the access form, wait for a TestFlight invite, then install.</li>
         </ol>
         <p style="margin-top:16px;margin-bottom:0">
           <button type="button" class="cta" data-open-platform-dialog>Request access</button>
@@ -64,7 +64,7 @@
       <div class="card-list">
         <a class="card" href="../install-testflight/">
           <strong>TestFlight</strong>
-          <span>iOS Internal Testing for App Store Connect team members.</span>
+          <span>iOS: open the public join link, then install.</span>
         </a>
         <a class="card" href="../install-play-internal/">
           <strong>Play Closed Testing</strong>
@@ -85,10 +85,10 @@
       <h2 id="platform-dialog-title">Choose your platform</h2>
       <p>Where do you want to install OpenCode Mobile?</p>
       <div class="dialog-choices">
-        <button type="button" class="dialog-choice" data-platform="ios">
+        <a class="dialog-choice" href="../install-testflight/" data-platform="ios">
           <strong>iOS</strong>
-          <span>Request TestFlight access via the form</span>
-        </button>
+          <span>Join on TestFlight, then install</span>
+        </a>
         <a class="dialog-choice" href="../install-play-internal/" data-platform="android">
           <strong>Android</strong>
           <span>Join the tester group, then install from Play</span>
@@ -102,9 +102,6 @@
     (function () {
       var dialog = document.getElementById("platform-dialog");
       if (!dialog) return;
-
-      var formUrl =
-        "https://docs.google.com/forms/d/e/1FAIpQLScnVuK5Br-KCg8o5OdnmtQ8U9RamhMgAB_VFaZukGPj6frYjg/viewform?usp=publish-editor";
 
       function openDialog() {
         if (typeof dialog.showModal === "function") {
@@ -132,14 +129,6 @@
       document.querySelectorAll("[data-close-platform-dialog]").forEach(function (el) {
         el.addEventListener("click", closeDialog);
       });
-
-      var iosChoice = dialog.querySelector('[data-platform="ios"]');
-      if (iosChoice) {
-        iosChoice.addEventListener("click", function () {
-          closeDialog();
-          window.open(formUrl, "_blank", "noopener,noreferrer");
-        });
-      }
 
       dialog.addEventListener("click", function (event) {
         if (event.target === dialog) closeDialog();

@@ -28,15 +28,14 @@
     <div class="eyebrow">iOS · install</div>
     <h1>Install via TestFlight</h1>
     <p class="lede">
-      Get <strong>OpenCode Mobile — Unofficial</strong> through Apple’s TestFlight
-      <em>Internal Testing</em>. This is a private team channel — not the App Store.
+      Get <strong>OpenCode Mobile — Unofficial</strong> through Apple’s TestFlight.
+      Anyone with the join link can install — this is not the App Store.
     </p>
 
     <p class="note">
-      You must be an <strong>App Store Connect</strong> team member for this app.
-      Internal Testing does not use public invite links or External Testing groups.
-      Need an invite? <a href="../request-access/">Request access</a>.
-      After install, follow the <a href="../connecting/">connection guide</a>.
+      Self-invite: open the TestFlight join link on your iPhone or iPad, accept,
+      then install. After install, follow the
+      <a href="../connecting/">connection guide</a>.
     </p>
 
     <figure class="figure">
@@ -69,9 +68,8 @@
       </div>
       <div class="card">
         <ul class="clean">
-          <li>An iPhone or iPad signed into the Apple ID that was added to the App Store Connect team</li>
+          <li>An iPhone or iPad (open the join link on the device, not only on a computer)</li>
           <li>The free <strong>TestFlight</strong> app from the App Store</li>
-          <li>A build that has finished Apple processing (someone on the team usually triggers upload)</li>
         </ul>
       </div>
     </section>
@@ -80,7 +78,7 @@
       <div class="section-head">
         <div class="step-badge">1</div>
         <div>
-          <h2>Install the build</h2>
+          <h2>Join and install</h2>
           <p>On your physical device</p>
         </div>
       </div>
@@ -89,14 +87,18 @@
         <h3>Steps</h3>
         <ol class="clean">
           <li>Install <strong>TestFlight</strong> from the App Store if you don’t already have it.</li>
-          <li>Open TestFlight while signed in with your invited Apple ID.</li>
-          <li>Find <strong>OpenCode Mobile — Unofficial</strong>.</li>
-          <li>Accept the invite if prompted, then tap <strong>Install</strong> (or <strong>Update</strong>).</li>
+          <li>Open the join link on the same iPhone or iPad.</li>
+          <li>Accept the TestFlight invite if prompted.</li>
+          <li>On <strong>OpenCode Mobile — Unofficial</strong>, tap <strong>Install</strong> (or <strong>Update</strong>).</li>
           <li>Launch the app from TestFlight or the Home Screen.</li>
         </ol>
+        <p style="margin-top:16px;margin-bottom:0">
+          <a class="cta" href="https://testflight.apple.com/join/psaUBVsa" target="_blank" rel="noopener noreferrer">Join on TestFlight</a>
+        </p>
+        <a class="cta-secondary" href="https://testflight.apple.com/join/psaUBVsa" target="_blank" rel="noopener noreferrer">testflight.apple.com/join/psaUBVsa</a>
         <p class="callout">
-          <strong>Still processing?</strong> New uploads can sit in “Processing” in App Store Connect
-          for a while. The build only appears in TestFlight after Apple finishes that step.
+          <strong>Open it on the phone.</strong> A desktop browser may show the TestFlight
+          page, but you accept and install in the TestFlight app on iOS.
         </p>
       </div>
     </section>
@@ -127,10 +129,10 @@
       </div>
       <div class="card">
         <ul class="checklist">
-          <li><span class="box" aria-hidden="true"></span><span>Apple ID is on the App Store Connect team</span></li>
           <li><span class="box" aria-hidden="true"></span><span>TestFlight app installed</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>Build visible and not stuck in Processing</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>App installs and opens</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Opened the join link on the iPhone or iPad</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Invite accepted and app installed</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>App opens from TestFlight or the Home Screen</span></li>
           <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
         </ul>
       </div>
@@ -145,16 +147,20 @@
           </thead>
           <tbody>
             <tr>
+              <td>Link doesn’t offer Install</td>
+              <td>TestFlight isn’t installed; opened the link on a computer instead of the device</td>
+            </tr>
+            <tr>
               <td>App never appears in TestFlight</td>
-              <td>Apple ID not on the ASC team; build still processing; wrong Apple ID on the device</td>
+              <td>Invite not accepted yet; wrong Apple ID signed in on the device</td>
+            </tr>
+            <tr>
+              <td>Beta isn’t accepting new testers</td>
+              <td>Tester cap reached — try later or ask the maintainer</td>
             </tr>
             <tr>
               <td>Only an old build shows</td>
-              <td>Newer upload not finished processing, or Internal Testing not updated yet</td>
-            </tr>
-            <tr>
-              <td>Need a non-team tester</td>
-              <td>Ask the maintainer — Internal Testing does not use public External TestFlight links</td>
+              <td>Newer TestFlight build not released yet; wait or check with the maintainer</td>
             </tr>
           </tbody>
         </table>

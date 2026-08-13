@@ -23,8 +23,8 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `index.html` | Landing page with manifest index |
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
-| `request-access/` | Platform chooser → iOS form / Android self-invite |
-| `install-testflight/` | iOS TestFlight Internal Testing |
+| `request-access/` | Platform chooser → iOS TestFlight join / Android self-invite |
+| `install-testflight/` | iOS TestFlight public join link |
 | `install-play-internal/` | Android: Google Group + Play Closed testing |
 | `planned/` | Prioritized public backlog of planned features |
 
@@ -52,14 +52,17 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 - Tester-facing only. No CI secrets, signing keys, service-account JSON, or
   operator-only runbook internals.
-- Safe to name private channels (TestFlight Internal, Play Closed testing)
+- Safe to name private channels (TestFlight, Play Closed testing)
   when that helps install steps.
 - Android Play Closed is self-invite: join Google Group
   `opencode-mobile-testers` (Anyone can join), then open the Play Store listing
   (`https://play.google.com/store/apps/details?id=dev.opencode.mobile`) with
   the same Google account. Do not tell Android testers to wait for a manual
   email add.
-- iOS TestFlight Internal remains invite-only via the access form / ASC team.
+- iOS TestFlight is self-invite: open
+  `https://testflight.apple.com/join/psaUBVsa` on the iPhone or iPad (install
+  TestFlight if needed), then accept and install. Do not tell iOS testers to
+  wait for a form, email, or App Store Connect team add.
 - Point “after install” flows at `connecting/`.
 - Point platform chooser / “not on a build yet” flows at `request-access/`.
 - Prefer Tailscale (or other user-managed transport) for reaching `opencode
