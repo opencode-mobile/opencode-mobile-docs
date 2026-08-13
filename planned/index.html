@@ -27,8 +27,7 @@
       <div class="eyebrow">Roadmap</div>
       <h1>Planned work</h1>
       <p class="lede">
-        Features and fixes lined up after the current tester builds.
-        Ordered by priority so you can see what is next versus later.
+        What is next, what is still on the list, and what already landed in tester builds.
       </p>
 
       <p class="note">
@@ -36,117 +35,114 @@
         testing feedback comes in. Release plumbing and private operator work stay off this list.
       </p>
 
-      <section id="next">
-        <div class="section-head">
-          <div class="step-badge">1</div>
-          <div>
-            <h2>Next up</h2>
-            <p>Higher priority — earliest you should expect</p>
-          </div>
-        </div>
+      <nav class="scan-jump" aria-label="On this page">
+        <a href="#next">Next up</a>
+        <a href="#planned">Planned</a>
+        <a href="#shipped">Shipped</a>
+        <a href="#later">Later</a>
+      </nav>
 
-        <div class="card">
-          <h3>OpenCode v2 server support</h3>
-          <p>
-            Connect to both classic OpenCode servers and newer v2 servers without
-            changing how you use the app. Protocol is detected on connect so newer
-            OpenCode installs stop failing as a pure v1 client.
-          </p>
+      <section class="scan" id="next">
+        <div class="scan-head">
+          <h2>Next up</h2>
+          <span class="scan-count">4</span>
         </div>
-
-        <div class="card">
-          <h3>Collapse consecutive tool calls</h3>
-          <p>
-            Optionally fold back-to-back tool calls in Session Chat into one summary
-            card. Toggle under Settings → Appearance; off by default.
-          </p>
+        <div class="scan-row">
+          <strong>Collapse consecutive tool calls</strong>
+          <span>Optionally fold back-to-back tool calls in Session Chat into one summary card. Off by default.</span>
         </div>
-
-        <div class="card">
-          <h3>Composer agent picker</h3>
-          <p>
-            Choose any primary agent from the connected server — including your
-            custom agents — instead of only Build and Plan. Matches how desktop
-            and TUI already cycle agents from server config.
-          </p>
+        <div class="scan-row">
+          <strong>Running child session as a chat row</strong>
+          <span>A running subagent looks like a quiet thread row in the parent chat, not a generic tool card.</span>
         </div>
-
-        <div class="card">
-          <h3>Fork session from chat</h3>
-          <p>
-            Fork the open session from the overflow menu, or fork from a specific
-            outgoing message. Name the fork, then open it or stay on the original.
-          </p>
+        <div class="scan-row">
+          <strong>Composer agent picker</strong>
+          <span>Choose any primary agent from the connected server, including custom agents — not only Build and Plan.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Fork session from chat</strong>
+          <span>Fork the open session, or fork from a specific outgoing message, then open it or stay.</span>
         </div>
       </section>
 
-      <section id="planned">
-        <div class="section-head">
-          <div class="step-badge">2</div>
-          <div>
-            <h2>Planned</h2>
-            <p>On the list after the next-up items</p>
-          </div>
+      <section class="scan" id="planned">
+        <div class="scan-head">
+          <h2>Planned</h2>
+          <span class="scan-count">6</span>
         </div>
-
-        <div class="card">
-          <h3>Jump-to-bottom button flicker (Android)</h3>
-          <p>
-            In Android chat, the floating button that jumps to the latest messages
-            can flash on and off when you stop scrolling near the bottom. Make it
-            stay steady instead.
-          </p>
+        <div class="scan-row">
+          <strong>Jump-to-bottom button flicker (Android)</strong>
+          <span>The floating jump button can flash on and off when you stop scrolling near the bottom.</span>
         </div>
-
-        <div class="card">
-          <h3>File browser</h3>
-          <p>
-            Browse directories and open file contents for the active project on the
-            connected server. Viewer-first; editing is out of scope for this slice.
-          </p>
+        <div class="scan-row">
+          <strong>Project picker on home</strong>
+          <span>Replace the home project chip scroller with a single picker so filtering still works when many projects are added.</span>
         </div>
-
-        <div class="card">
-          <h3>@ file mentions</h3>
-          <p>
-            Type <code>@</code> in the composer to fuzzy-match project files and
-            insert structured file references into a prompt, alongside agent mentions.
-          </p>
+        <div class="scan-row">
+          <strong>Simpler home with one project</strong>
+          <span>With a single added project, skip the All chip and the extra project picker when starting a new session.</span>
         </div>
-
-        <div class="card">
-          <h3>Session export</h3>
-          <p>
-            Export an open session for sharing or archival (Markdown, JSON, or the
-            system share sheet — format still to be locked).
-          </p>
+        <div class="scan-row">
+          <strong>File browser</strong>
+          <span>Browse directories and open file contents for the active project. Viewer-first; no editing in this slice.</span>
+        </div>
+        <div class="scan-row">
+          <strong>@ file mentions</strong>
+          <span>Type <code>@</code> in the composer to fuzzy-match project files and insert them into a prompt.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Session export</strong>
+          <span>Export an open session for sharing or archival. Format still to be locked.</span>
         </div>
       </section>
 
-      <section id="later">
-        <div class="section-head">
-          <div class="step-badge">3</div>
-          <div>
-            <h2>Later</h2>
-            <p>Useful, but lower priority or still scoping</p>
-          </div>
+      <section class="scan shipped" id="shipped">
+        <div class="scan-head">
+          <h2>Shipped</h2>
+          <span class="scan-count">6</span>
         </div>
-
-        <div class="card">
-          <h3>Remote terminal</h3>
-          <p>
-            Some form of remote shell against the server host — interactive PTY,
-            one-shot shell commands in chat, or shell-output rendering. Product
-            shape is still open; not all three will ship together.
-          </p>
+        <div class="scan-row">
+          <strong>OpenCode v2 server support</strong>
+          <span>Connect to classic and newer v2 servers. Protocol is detected on connect.</span>
         </div>
+        <div class="scan-row">
+          <strong>Session Chat freeze (iOS)</strong>
+          <span>Sending and opening a session no longer lock up TestFlight builds.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Keyboard hides when you send</strong>
+          <span>The composer dismisses on send so the timeline can use the screen.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Project name in the chat top bar</strong>
+          <span>See which project a session belongs to without leaving chat.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Long-press sessions on home</strong>
+          <span>Rename, fork, archive, or delete from the Session List without opening chat.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Remove a project from home</strong>
+          <span>Drop a project from the Session List dock without deleting its sessions on the server.</span>
+        </div>
+      </section>
 
-        <div class="card">
-          <h3>MCP server list</h3>
-          <p>
-            Read-only list of MCP servers configured on the connected opencode
-            server, with status. Connect / OAuth / tool invocation UI comes later.
-          </p>
+      <section class="scan later" id="later">
+        <div class="scan-head">
+          <h2>Later</h2>
+          <span class="scan-count">3</span>
+        </div>
+        <div class="scan-row">
+          <strong>Multiple connection profiles</strong>
+          <span>Save more than one server, switch which one home shows, and add or remove profiles without mixing sessions.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Remote terminal</strong>
+          <span>Some form of remote shell. Product shape is still open.</span>
+        </div>
+        <div class="scan-row">
+          <strong>MCP server list</strong>
+          <span>Read-only list of MCP servers on the connected opencode server.</span>
         </div>
       </section>
 

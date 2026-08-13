@@ -25,7 +25,7 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
 | `install-testflight/` | iOS TestFlight public join link |
 | `install-play-internal/` | Android: Google Group + Play Closed testing |
-| `planned/` | Prioritized public backlog of planned features |
+| `planned/` | Next / planned / shipped / later scan list |
 | `request-access/` | Legacy URL; redirects to the docs home |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
