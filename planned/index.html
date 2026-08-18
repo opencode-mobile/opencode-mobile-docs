@@ -45,42 +45,22 @@
       <section class="scan" id="next">
         <div class="scan-head">
           <h2>Next up</h2>
-          <span class="scan-count">4</span>
-        </div>
-        <div class="scan-row">
-          <strong>Collapse consecutive tool calls</strong>
-          <span>Optionally fold back-to-back tool calls in Session Chat into one summary card. Off by default.</span>
-        </div>
-        <div class="scan-row">
-          <strong>Running child session as a chat row</strong>
-          <span>A running subagent looks like a quiet thread row in the parent chat, not a generic tool card.</span>
-        </div>
-        <div class="scan-row">
-          <strong>Composer agent picker</strong>
-          <span>Choose any primary agent from the connected server, including custom agents — not only Build and Plan.</span>
+          <span class="scan-count">2</span>
         </div>
         <div class="scan-row">
           <strong>Fork session from chat</strong>
           <span>Fork the open session, or fork from a specific outgoing message, then open it or stay.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Composer agent picker</strong>
+          <span>Choose any primary agent from the connected server, including custom agents — not only Build and Plan.</span>
         </div>
       </section>
 
       <section class="scan" id="planned">
         <div class="scan-head">
           <h2>Planned</h2>
-          <span class="scan-count">6</span>
-        </div>
-        <div class="scan-row">
-          <strong>Jump-to-bottom button flicker (Android)</strong>
-          <span>The floating jump button can flash on and off when you stop scrolling near the bottom.</span>
-        </div>
-        <div class="scan-row">
-          <strong>Project picker on home</strong>
-          <span>Replace the home project chip scroller with a single picker so filtering still works when many projects are added.</span>
-        </div>
-        <div class="scan-row">
-          <strong>Simpler home with one project</strong>
-          <span>With a single added project, skip the All chip and the extra project picker when starting a new session.</span>
+          <span class="scan-count">2</span>
         </div>
         <div class="scan-row">
           <strong>File browser</strong>
@@ -90,40 +70,44 @@
           <strong>@ file mentions</strong>
           <span>Type <code>@</code> in the composer to fuzzy-match project files and insert them into a prompt.</span>
         </div>
-        <div class="scan-row">
-          <strong>Session export</strong>
-          <span>Export an open session for sharing or archival. Format still to be locked.</span>
-        </div>
       </section>
 
       <section class="scan shipped" id="shipped">
         <div class="scan-head">
           <h2>Shipped</h2>
-          <span class="scan-count">6</span>
+          <span class="scan-count">8</span>
         </div>
         <div class="scan-row">
-          <strong>OpenCode v2 server support</strong>
-          <span>Connect to classic and newer v2 servers. Protocol is detected on connect.</span>
+          <strong>Chat catch-up when the stream stalls</strong>
+          <span>Stay in Session Chat and keep seeing new assistant work when the live stream looks connected but stops updating.</span>
         </div>
         <div class="scan-row">
-          <strong>Session Chat freeze (iOS)</strong>
-          <span>Sending and opening a session no longer lock up TestFlight builds.</span>
+          <strong>Project picker on home</strong>
+          <span>Replace the chip scroller with a searchable picker when you turn it on in Settings; chips stay the default.</span>
         </div>
         <div class="scan-row">
-          <strong>Keyboard hides when you send</strong>
-          <span>The composer dismisses on send so the timeline can use the screen.</span>
+          <strong>Multiple connection profiles</strong>
+          <span>Save more than one server, switch which one home shows, and add or remove profiles without mixing sessions.</span>
         </div>
         <div class="scan-row">
-          <strong>Project name in the chat top bar</strong>
-          <span>See which project a session belongs to without leaving chat.</span>
+          <strong>Create sessions on v2 servers</strong>
+          <span>Starting a new session on a v2 server no longer fails after the server responds.</span>
         </div>
         <div class="scan-row">
-          <strong>Long-press sessions on home</strong>
-          <span>Rename, fork, archive, or delete from the Session List without opening chat.</span>
+          <strong>API version on server rows</strong>
+          <span>Each saved server shows whether it speaks API v1 or v2 after you test the connection.</span>
         </div>
         <div class="scan-row">
-          <strong>Remove a project from home</strong>
-          <span>Drop a project from the Session List dock without deleting its sessions on the server.</span>
+          <strong>Composer drafts</strong>
+          <span>Leave a session and come back — unsent composer text is still there.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Simpler home with one project</strong>
+          <span>With a single added project, skip the All chip and the extra project picker when starting a new session.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Session todos stay visible</strong>
+          <span>The todo pill stays on screen while items are unfinished, not only while the agent is working.</span>
         </div>
       </section>
 
@@ -133,16 +117,16 @@
           <span class="scan-count">3</span>
         </div>
         <div class="scan-row">
-          <strong>Multiple connection profiles</strong>
-          <span>Save more than one server, switch which one home shows, and add or remove profiles without mixing sessions.</span>
-        </div>
-        <div class="scan-row">
           <strong>Remote terminal</strong>
           <span>Some form of remote shell. Product shape is still open.</span>
         </div>
         <div class="scan-row">
           <strong>MCP server list</strong>
           <span>Read-only list of MCP servers on the connected opencode server.</span>
+        </div>
+        <div class="scan-row">
+          <strong>Session export</strong>
+          <span>Export an open session for sharing or archival. Format still to be locked.</span>
         </div>
       </section>
 
