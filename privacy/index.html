@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — OpenCode Mobile</title>
+<link rel="canonical" href="https://opencode-mobile.github.io/opencode-mobile-docs/privacy/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,90 +30,234 @@
       <h1>Privacy Policy</h1>
       <p class="lede">
         How <strong>OpenCode Mobile — Unofficial</strong> handles data.
-        Last updated: 11 August 2026.
+        Last updated: 23 August 2026.
       </p>
 
       <p class="note">
         This is an unofficial third-party client for opencode. It is not
-        published by the opencode project. This page describes the mobile apps’
-        practices, not your opencode server.
+        published by the opencode project. This page covers the iOS and Android
+        apps only — not your opencode server, and not the opencode project.
       </p>
 
-      <section>
+      <nav class="scan-jump" aria-label="On this page">
+        <a href="#on-this-device">On this device</a>
+        <a href="#your-server">Your server</a>
+        <a href="#sent-to-us">Sent to us</a>
+        <a href="#your-choices">Your choices</a>
+        <a href="#deletion">Deletion</a>
+        <a href="#children">Children</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="snapshot">
         <div class="card">
-          <h3>What the apps do</h3>
+          <h3>Snapshot</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Kind</th>
+                <th>Where it lives</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Connection password</td>
+                <td>Device only (iOS Keychain / Android Keystore-backed storage)</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Host, username, profile names</td>
+                <td>Device only (ordinary local storage)</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Session cache, drafts, themes, diagnostic log buffer</td>
+                <td>Device only</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Prompts, messages, files</td>
+                <td>The opencode server you configured, plus on-device cache copies</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Crash reports and automatic diagnostics</td>
+                <td>Google Firebase, release builds</td>
+                <td>Always on release builds. No in-app switch.</td>
+              </tr>
+              <tr>
+                <td>Product usage events</td>
+                <td>Google Firebase, release builds</td>
+                <td>On by default. Turn off in Settings → Privacy. Clear All Data turns it back on.</td>
+              </tr>
+              <tr>
+                <td>Advertising ID / ads</td>
+                <td>Not used</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="who">
+        <div class="card">
+          <h3>Who we are</h3>
           <p>
-            OpenCode Mobile connects to an opencode server that <em>you</em>
-            run or choose (for example on your development machine). Connection
-            details you enter (host, credentials) stay on your device in
-            platform-secured storage (iOS Keychain / Android Keystore-backed
-            storage). The apps do not provide an account system or relay for
-            that server.
+            Ivan Fenenko publishes <strong>OpenCode Mobile — Unofficial</strong>
+            as an independent client. The apps have no account system and do not
+            relay traffic to your opencode server.
           </p>
         </div>
       </section>
 
-      <section>
+      <section id="on-this-device">
         <div class="card">
-          <h3>Crash and diagnostics data</h3>
+          <h3>On this device</h3>
           <p>
-            Release builds may send crash reports and limited automatic
-            technical / lifecycle diagnostics through
-            <strong>Firebase Crashlytics</strong> and
-            <strong>Firebase Analytics</strong> (used as Crashlytics
-            breadcrumbs). That can include device and OS information, app
-            version, and crash stack traces.
+            Connection passwords stay in iOS Keychain or Android
+            Keystore-backed storage. Host, username, display name, and related
+            profile fields stay in ordinary on-device storage.
           </p>
+          <p>
+            The apps also keep session and message cache, unsent composer
+            drafts, theme and display preferences, and a rolling diagnostic log
+            buffer on the device. Diagnostic Logs in Settings are a share-sheet
+            export. They are not uploaded automatically. Redaction is heuristic,
+            not a guarantee.
+          </p>
+          <p>
+            Settings → Clear All Data removes this local data and resets the
+            product-usage switch to on.
+          </p>
+        </div>
+      </section>
+
+      <section id="your-server">
+        <div class="card">
+          <h3>Your server</h3>
+          <p>
+            Prompts, messages, attachments, and project content you send through
+            the app go to the opencode server you configured. That traffic and
+            any server-side logging are outside this policy. Delete that content
+            on the server.
+          </p>
+        </div>
+      </section>
+
+      <section id="sent-to-us">
+        <div class="card">
+          <h3>Sent to us</h3>
+          <p>
+            Release builds include Firebase Crashlytics and Firebase Analytics.
+            Debug builds do not include this Firebase runtime and send nothing
+            to us.
+          </p>
+          <p>
+            <strong>Crash reports and automatic diagnostics</strong> have no
+            extra switch. They can include device and OS information, app
+            version, crash stack traces, Firebase installation / app-instance
+            identifiers, and automatic lifecycle events such as first open and
+            session start. Automatic screen / page-view reporting is disabled.
+            Advertising ID is not collected for ads or ad personalization.
+            That is not the same as “no device identifiers.”
+          </p>
+          <p>
+            <strong>Product usage events</strong> are optional and on by
+            default. When the Settings → Privacy switch is on, release builds
+            may send <code>product_screen_view</code> and
+            <code>product_user_action</code>. Parameters are short enum IDs
+            (screen, action, presentation, trigger, outcome, and similar
+            flags). Connection-edit events are IDs such as “edited password,”
+            not the URL or password itself. These events do not include
+            prompts, file contents, or credential values. Turn the switch off
+            and those events do not fire. Crash reporting stays on.
+          </p>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="card">
+          <h3>Why</h3>
+          <p>
+            To keep the apps working, find crashes, and see which screens or
+            actions fail. Not for advertising. Data is not sold.
+          </p>
+        </div>
+      </section>
+
+      <section id="processors">
+        <div class="card">
+          <h3>Who processes it</h3>
+          <p>
+            Crash and product-usage data is sent to <strong>Google Firebase</strong>
+            (Crashlytics and Analytics) so those services can run. Google may
+            process that data on servers outside your country. There is no
+            other recipient and no sale of data.
+          </p>
+        </div>
+      </section>
+
+      <section id="retention">
+        <div class="card">
+          <h3>How long</h3>
+          <p>
+            Developer-held diagnostics follow the Firebase project defaults.
+            There is no separate user database.
+          </p>
+        </div>
+      </section>
+
+      <section id="your-choices">
+        <div class="card">
+          <h3>Your choices</h3>
           <ul class="clean">
-            <li>No custom product analytics events are sent today.</li>
-            <li>Automatic screen / page-view reporting is disabled.</li>
-            <li>Advertising ID / IDFA is not used for ads or ad personalization.</li>
-            <li>Debug builds do not include this Firebase runtime.</li>
+            <li>Settings → Privacy → Product Analytics turns optional usage events off or on. The switch starts on. Crash reporting does not change.</li>
+            <li>Settings → Clear All Data removes local app data and turns Product Analytics back on.</li>
+            <li>Settings → Diagnostic Logs lets you share a local log window. Nothing is sent until you share it.</li>
           </ul>
         </div>
       </section>
 
-      <section>
+      <section id="deletion">
         <div class="card">
-          <h3>What we do not collect for advertising</h3>
+          <h3>Deletion</h3>
           <p>
-            The apps do not sell your personal data and do not use collected
-            diagnostics for third-party advertising or ad personalization.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="card">
-          <h3>Your opencode server</h3>
-          <p>
-            Prompts, messages, and project content you send through the app go
-            to the opencode server you configured. That traffic and any server-
-            side logging are outside this privacy policy and under your (or
-            your server operator’s) control.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="card">
-          <h3>Requesting deletion of diagnostics data</h3>
-          <p>
-            Release builds may send crash and limited technical diagnostics to
-            Firebase (Crashlytics / Analytics). To request deletion of that
-            developer-held diagnostics data associated with your use of the
-            apps, email
+            The apps have no accounts. There is no user ID to look up. Email
             <a href="mailto:ivanfenenko@gmail.com">ivanfenenko@gmail.com</a>
-            with the subject line “OpenCode Mobile data deletion”, your Google
-            Play account email if relevant, and approximate device / app version
-            details. We will process reasonable requests for diagnostics we
-            control. Content on your own opencode server is outside this process
-            — delete it there.
+            with the subject “OpenCode Mobile data deletion” and whatever you
+            can share: app version, OS, approximate crash time, and a Firebase
+            installation ID if you have one. Identifiable diagnostics we
+            control will be deleted. A complete wipe is not guaranteed.
+          </p>
+          <p>
+            Content on your opencode server is outside this process. Delete it
+            there.
           </p>
         </div>
       </section>
 
-      <section>
+      <section id="children">
+        <div class="card">
+          <h3>Children</h3>
+          <p>
+            The apps are for people 18 and over and are not directed at
+            children.
+          </p>
+        </div>
+      </section>
+
+      <section id="changes">
+        <div class="card">
+          <h3>Changes</h3>
+          <p>
+            The date at the top moves when these practices change.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
         <div class="card">
           <h3>Contact</h3>
           <p>
