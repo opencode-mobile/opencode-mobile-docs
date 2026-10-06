@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Install via Play Closed Testing — OpenCode Mobile</title>
+<title>Install via Google Play — OpenCode Mobile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
       <nav class="site-nav" aria-label="Site">
         <a href="../">Overview</a>
         <a href="../install-testflight/">Install · TestFlight</a>
-        <a href="../install-play-internal/" aria-current="page">Install · Play Closed</a>
+        <a href="../install-play-internal/" aria-current="page">Install · Google Play</a>
         <a href="../connecting/">Connect</a>
         <a href="../planned/">Planned</a>
         <a href="../privacy/">Privacy</a>
@@ -26,17 +26,15 @@
     </aside>
     <main class="page">
     <div class="eyebrow">Android · install</div>
-    <h1>Install via Play Closed Testing</h1>
+    <h1>Install via Google Play</h1>
     <p class="lede">
-      Get <strong>OpenCode Mobile — Unofficial</strong> through Google Play
-      <em>Closed testing</em>. Anyone who joins the tester Google Group can
-      install — this is not a public production listing.
+      Get <strong>OpenCode Mobile — Unofficial</strong> from Google Play.
+      The listing is public. Install it on the device the same way you install any other Play app.
     </p>
 
     <p class="note">
-      Self-invite in two steps: join the tester Google Group, then open the Play
-      Store listing with the <strong>same</strong> Google account. After install,
-      follow the <a href="../connecting/">connection guide</a>.
+      Open the Play Store listing on your Android device and tap Install.
+      After install, follow the <a href="../connecting/">connection guide</a>.
     </p>
 
     <figure class="figure">
@@ -71,7 +69,6 @@
         <ul class="clean">
           <li>A physical Android device (or emulator) signed into Google Play</li>
           <li>The <strong>Google Play Store</strong> app</li>
-          <li>One Google account used for both the group join and the Play Store install</li>
         </ul>
         <p class="callout">
           <strong>Coming from an older sideloaded / Firebase APK?</strong> Uninstall that
@@ -80,32 +77,9 @@
       </div>
     </section>
 
-    <section id="join-group">
-      <div class="section-head">
-        <div class="step-badge">1</div>
-        <div>
-          <h2>Join the tester Google Group</h2>
-          <p>This puts your account on the Play Closed testing list</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Steps</h3>
-        <ol class="clean">
-          <li>Open the group link while signed into the Google account you use on the Android device.</li>
-          <li>Join <strong>OpenCode Mobile Testers</strong> (anyone can join).</li>
-          <li>Wait a few minutes if Play still says you’re not a tester — group membership can take a short while to sync (occasionally longer).</li>
-        </ol>
-        <p style="margin-top:16px;margin-bottom:0">
-          <a class="cta" href="https://groups.google.com/g/opencode-mobile-testers" target="_blank" rel="noopener noreferrer">Join OpenCode Mobile Testers</a>
-        </p>
-        <a class="cta-secondary" href="https://groups.google.com/g/opencode-mobile-testers" target="_blank" rel="noopener noreferrer">groups.google.com/g/opencode-mobile-testers</a>
-      </div>
-    </section>
-
     <section id="install">
       <div class="section-head">
-        <div class="step-badge">2</div>
+        <div class="step-badge">1</div>
         <div>
           <h2>Install from Play Store</h2>
           <p>On your physical device</p>
@@ -115,9 +89,8 @@
       <div class="card">
         <h3>Steps</h3>
         <ol class="clean">
-          <li>Open the Play Store listing while signed into the <strong>same</strong> Google account.</li>
-          <li>Accept the Closed testing invite / <strong>Become a tester</strong> if prompted.</li>
-          <li>On the <strong>OpenCode Mobile — Unofficial</strong> listing, tap <strong>Install</strong> (or <strong>Update</strong>).</li>
+          <li>Open the Play Store listing on the Android device.</li>
+          <li>On <strong>OpenCode Mobile — Unofficial</strong>, tap <strong>Install</strong> (or <strong>Update</strong>).</li>
           <li>Launch the app from Play or the app drawer.</li>
         </ol>
         <p style="margin-top:16px;margin-bottom:0">
@@ -129,7 +102,7 @@
 
     <section id="next">
       <div class="section-head">
-        <div class="step-badge">3</div>
+        <div class="step-badge">2</div>
         <div>
           <h2>After install</h2>
           <p>Point the app at your opencode server</p>
@@ -153,8 +126,7 @@
       </div>
       <div class="card">
         <ul class="checklist">
-          <li><span class="box" aria-hidden="true"></span><span>Joined the OpenCode Mobile Testers Google Group</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>Opened the Play Store listing with the same account</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Opened the Play Store listing on the device</span></li>
           <li><span class="box" aria-hidden="true"></span><span>Old sideloaded copy uninstalled if switching</span></li>
           <li><span class="box" aria-hidden="true"></span><span>App installs and opens from Play</span></li>
           <li><span class="box" aria-hidden="true"></span><span>Server connection saved</span></li>
@@ -171,12 +143,8 @@
           </thead>
           <tbody>
             <tr>
-              <td>Play says you’re not a tester / can’t install</td>
-              <td>Not yet in the Google Group; group membership still syncing; wrong Google account signed in on the device</td>
-            </tr>
-            <tr>
               <td>App listing missing or Install unavailable</td>
-              <td>Not in the tester group yet; Play still syncing after join; wrong account in Play Store</td>
+              <td>Play Store isn’t signed in, or this device has no Play Store. Open the listing link on the phone.</td>
             </tr>
             <tr>
               <td>Install fails / “App not installed”</td>
@@ -184,11 +152,7 @@
             </tr>
             <tr>
               <td>Only an old build shows</td>
-              <td>Newer closed-test release not rolled out yet; wait or check with the maintainer</td>
-            </tr>
-            <tr>
-              <td>Joined the group but Play still rejects you after an hour+</td>
-              <td>Confirm the Play Store account matches the group membership; reopen the Play listing later or ask the maintainer</td>
+              <td>Play is still rolling out the newer release. Refresh the store listing, or check again later.</td>
             </tr>
           </tbody>
         </table>

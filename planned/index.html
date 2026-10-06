@@ -17,7 +17,7 @@
       <nav class="site-nav" aria-label="Site">
         <a href="../">Overview</a>
         <a href="../install-testflight/">Install · TestFlight</a>
-        <a href="../install-play-internal/">Install · Play Closed</a>
+        <a href="../install-play-internal/">Install · Google Play</a>
         <a href="../connecting/">Connect</a>
         <a href="../planned/" aria-current="page">Planned</a>
         <a href="../privacy/">Privacy</a>
@@ -38,7 +38,6 @@
 
       <nav class="scan-jump" aria-label="On this page">
         <a href="#next">Next up</a>
-        <a href="#planned">Planned</a>
         <a href="#shipped">Shipped</a>
         <a href="#later">Later</a>
       </nav>
@@ -49,27 +48,12 @@
           <span class="scan-count">2</span>
         </div>
         <div class="scan-row">
+          <strong>More live Session Chat updates</strong>
+          <span>Compaction, growing tool arguments, and agent or model switches show in the open session, along with a few other live moments.</span>
+        </div>
+        <div class="scan-row">
           <strong>Fork session from chat</strong>
           <span>Fork the open session, or fork from a specific outgoing message, then open it or stay.</span>
-        </div>
-        <div class="scan-row">
-          <strong>Composer agent picker</strong>
-          <span>Choose any primary agent from the connected server, including custom agents — not only Build and Plan.</span>
-        </div>
-      </section>
-
-      <section class="scan" id="planned">
-        <div class="scan-head">
-          <h2>Planned</h2>
-          <span class="scan-count">2</span>
-        </div>
-        <div class="scan-row">
-          <strong>File browser</strong>
-          <span>Browse directories and open file contents for the active project. Viewer-first; no editing in this slice.</span>
-        </div>
-        <div class="scan-row">
-          <strong>@ file mentions</strong>
-          <span>Type <code>@</code> in the composer to fuzzy-match project files and insert them into a prompt.</span>
         </div>
       </section>
 
@@ -79,36 +63,36 @@
           <span class="scan-count">8</span>
         </div>
         <div class="scan-row">
-          <strong>Chat catch-up when the stream stalls</strong>
-          <span>Stay in Session Chat and keep seeing new assistant work when the live stream looks connected but stops updating.</span>
+          <strong>Terminal and chat history crashes</strong>
+          <span>Opening Terminal on Android 11, or a chat whose messages overlap out of order, no longer crashes the app.</span>
         </div>
         <div class="scan-row">
-          <strong>Project picker on home</strong>
-          <span>Replace the chip scroller with a searchable picker when you turn it on in Settings; chips stay the default.</span>
+          <strong>Chip timeline</strong>
+          <span>Settings can switch Session Chat to chips under each paragraph. Explore bursts collapse into one Explored chip, and a one-time sheet can turn the view on.</span>
         </div>
         <div class="scan-row">
-          <strong>Multiple connection profiles</strong>
-          <span>Save more than one server, switch which one home shows, and add or remove profiles without mixing sessions.</span>
+          <strong>MCP servers on Commands</strong>
+          <span>Commands shows a read-only list of MCP servers on the connected server, with status for each one.</span>
         </div>
         <div class="scan-row">
-          <strong>Create sessions on v2 servers</strong>
-          <span>Starting a new session on a v2 server no longer fails after the server responds.</span>
+          <strong>Finished turns when you come back</strong>
+          <span>Returning to an open chat shows the completed turn, and a normal send no longer flashes Syncing.</span>
         </div>
         <div class="scan-row">
-          <strong>API version on server rows</strong>
-          <span>Each saved server shows whether it speaks API v1 or v2 after you test the connection.</span>
+          <strong>Up next strip</strong>
+          <span>While a session is working, waiting prompts sit in one strip above the composer that opens an Up next sheet.</span>
         </div>
         <div class="scan-row">
-          <strong>Composer drafts</strong>
-          <span>Leave a session and come back — unsent composer text is still there.</span>
+          <strong>Drag to reorder projects</strong>
+          <span>Long-press and drag projects in the filter picker. The order sticks for that connection.</span>
         </div>
         <div class="scan-row">
-          <strong>Simpler home with one project</strong>
-          <span>With a single added project, skip the All chip and the extra project picker when starting a new session.</span>
+          <strong>Long chats open faster</strong>
+          <span>Opening a long chat skips the huge tool-output download the first screen never shows.</span>
         </div>
         <div class="scan-row">
-          <strong>Session todos stay visible</strong>
-          <span>The todo pill stays on screen while items are unfinished, not only while the agent is working.</span>
+          <strong>Terminal</strong>
+          <span>Home opens a live shell for the selected project, including on a v2 server.</span>
         </div>
       </section>
 
@@ -118,16 +102,16 @@
           <span class="scan-count">3</span>
         </div>
         <div class="scan-row">
-          <strong>Remote terminal</strong>
-          <span>Some form of remote shell. Product shape is still open.</span>
+          <strong>File browser</strong>
+          <span>Browse a project and open files to read. No editing, and the place you start from is not chosen yet.</span>
         </div>
         <div class="scan-row">
-          <strong>MCP server list</strong>
-          <span>Read-only list of MCP servers on the connected opencode server.</span>
+          <strong>@ file mentions</strong>
+          <span>Type <code>@</code> in the composer to insert a project file into the prompt. Agent mentions already use that key, and the overlap is not settled.</span>
         </div>
         <div class="scan-row">
           <strong>Session export</strong>
-          <span>Export an open session for sharing or archival. Format still to be locked.</span>
+          <span>Export the open session through the share sheet. The file format is still to be chosen.</span>
         </div>
       </section>
 
@@ -141,7 +125,7 @@
         Already on a build? <a href="../connecting/">Connect to your server</a>
         · Need a build?
         <a href="../install-testflight/">TestFlight</a>
-        · <a href="../install-play-internal/">Play Closed</a>
+        · <a href="../install-play-internal/">Google Play</a>
       </p>
     </main>
   </div>

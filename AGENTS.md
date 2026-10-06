@@ -24,7 +24,7 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
 | `install-testflight/` | iOS TestFlight public join link |
-| `install-play-internal/` | Android: Google Group + Play Closed testing |
+| `install-play-internal/` | Android: public Google Play listing |
 | `planned/` | Next / planned / shipped / later scan list |
 | `privacy/` | Privacy policy (Play / App Store URL) |
 | `request-access/` | Legacy URL; redirects to the docs home |
@@ -53,13 +53,11 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 - Tester-facing only. No CI secrets, signing keys, service-account JSON, or
   operator-only runbook internals.
-- Safe to name private channels (TestFlight, Play Closed testing)
-  when that helps install steps.
-- Android Play Closed is self-invite: join Google Group
-  `opencode-mobile-testers` (Anyone can join), then open the Play Store listing
-  (`https://play.google.com/store/apps/details?id=dev.opencode.mobile`) with
-  the same Google account. Do not tell Android testers to wait for a manual
-  email add.
+- Safe to name TestFlight when that helps the iOS install steps.
+- Android is a public Google Play listing:
+  `https://play.google.com/store/apps/details?id=dev.opencode.mobile`.
+  Open that listing and install. Do not tell Android users to join a Google
+  Group, wait for a tester email, or use Play Closed testing.
 - iOS TestFlight is self-invite: open
   `https://testflight.apple.com/join/psaUBVsa` on the iPhone or iPad (install
   TestFlight if needed), then accept and install. Do not tell iOS testers to
@@ -97,5 +95,6 @@ finished before telling someone a URL is live.
 
 - Native app implementation, design-system component work, Linear/feature
   tracking.
-- App-managed tunnels, accounts, or public store listing instructions.
+- App-managed tunnels or accounts. iOS stays on TestFlight until there is a
+  public App Store listing.
 - Embedding secrets or unpublished internal tooling URLs.
