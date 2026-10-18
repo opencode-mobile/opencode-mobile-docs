@@ -10,7 +10,7 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 
 | Path | Guide |
 | --- | --- |
-| [`install-testflight/`](./install-testflight/) | Install iOS via the public TestFlight join link |
+| [`install-app-store/`](./install-app-store/) | Install iOS from the App Store |
 | [`install-play-internal/`](./install-play-internal/) | Android: public Google Play listing |
 | [`connecting/`](./connecting/) | Start opencode serve, Tailscale, connect the app |
 | [`privacy/`](./privacy/) | Privacy policy |

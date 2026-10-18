@@ -8,7 +8,7 @@ Private product/app source: https://github.com/opencode-mobile/opencode-mobile
 
 ## Purpose
 
-- Publish setup and install guides testers can open without access to the
+- Publish setup and install guides anyone can open without access to the
   private app repo.
 - Keep copy scannable: short steps, checklists, troubleshooting tables.
 - Do **not** turn this into the product planning home — that stays in
@@ -23,8 +23,9 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `index.html` | Landing page with manifest index |
 | `assets/site.css` | Shared styles (sidebar, cards, callouts, CTAs) |
 | `connecting/` | Start opencode serve, Tailscale, connect the app |
-| `install-testflight/` | iOS TestFlight public join link |
+| `install-app-store/` | iOS: public App Store listing |
 | `install-play-internal/` | Android: public Google Play listing |
+| `install-testflight/` | Legacy URL; redirects to `install-app-store/` |
 | `planned/` | Next / planned / shipped / later scan list |
 | `privacy/` | Privacy policy (Play / App Store URL) |
 | `request-access/` | Legacy URL; redirects to the docs home |
@@ -51,19 +52,18 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 
 ## Content rules
 
-- Tester-facing only. No CI secrets, signing keys, service-account JSON, or
+- User-facing only. No CI secrets, signing keys, service-account JSON, or
   operator-only runbook internals.
-- Safe to name TestFlight when that helps the iOS install steps.
 - Android is a public Google Play listing:
   `https://play.google.com/store/apps/details?id=dev.opencode.mobile`.
-  Open that listing and install. Do not tell Android users to join a Google
-  Group, wait for a tester email, or use Play Closed testing.
-- iOS TestFlight is self-invite: open
-  `https://testflight.apple.com/join/psaUBVsa` on the iPhone or iPad (install
-  TestFlight if needed), then accept and install. Do not tell iOS testers to
-  wait for a form, email, or App Store Connect team add.
+  Open that listing and install.
+- iOS is a public App Store listing:
+  `https://apps.apple.com/app/opencode-mobile-unofficial/id6799246544`.
+  Open that listing on the iPhone or iPad and install. Requires iOS 17.5
+  or iPadOS 17.5 or later. Send people who still have the TestFlight build
+  to delete it and install the App Store app.
 - Point “after install” flows at `connecting/`.
-- Point “need a build” at `install-testflight/` (iOS) or
+- Point “need the app” at `install-app-store/` (iOS) or
   `install-play-internal/` (Android). There is no access-request form.
 - Prefer Tailscale (or other user-managed transport) for reaching `opencode
   serve`; the app does not create a relay.
@@ -93,8 +93,8 @@ finished before telling someone a URL is live.
 
 ## Out of scope here
 
-- Native app implementation, design-system component work, Linear/feature
-  tracking.
-- App-managed tunnels or accounts. iOS stays on TestFlight until there is a
-  public App Store listing.
+- Native app implementation, design-system component work, and GitHub issue
+  tracking. The public `planned/` page is a short snapshot of user-visible
+  work. Ticket detail stays in `opencode-mobile` issues.
+- App-managed tunnels or accounts.
 - Embedding secrets or unpublished internal tooling URLs.
