@@ -28,198 +28,197 @@
     <div class="eyebrow">Setup guide</div>
     <h1>Connect OpenCode Mobile to your server</h1>
     <p class="lede">
-      Three moves: start a password-protected opencode server, put the machine and phone on Tailscale, then save a Connection Profile in the app.
+      The phone talks to an opencode server on your computer. In the app, tap Connect to server, then pick a way in. The app detects API v1 or API v2 from whatever answers.
     </p>
 
-    <div class="path" aria-label="Steps">
-      <a href="#server">
+    <div class="path cols-4" aria-label="Connection options">
+      <a href="#remote">
         <span class="n">1</span>
-        <strong>Start server</strong>
-        <span>Password + bind for remote</span>
+        <strong>Remote QR</strong>
+        <span>OpenCode tunnel, then scan</span>
       </a>
-      <a href="#tailscale">
+      <a href="#wifi">
         <span class="n">2</span>
-        <strong>Tailscale</strong>
-        <span>Same tailnet, get a URL</span>
+        <strong>Same Wi-Fi QR</strong>
+        <span>Pair on the local network</span>
       </a>
-      <a href="#app">
+      <a href="#password">
         <span class="n">3</span>
-        <strong>Connect app</strong>
-        <span>Test, then save</span>
+        <strong>Host and password</strong>
+        <span>Username and password you set</span>
+      </a>
+      <a href="#code">
+        <span class="n">4</span>
+        <strong>Pairing code</strong>
+        <span>Same link, no camera</span>
       </a>
     </div>
 
     <p class="note">
-      The app does not create a tunnel or relay for you. You point it at a server you already run.
-      Full server docs: <a href="https://opencode.ai/docs/server/">opencode.ai/docs/server</a>
+      You run the server. <code>opencode pair --remote</code> opens OpenCode's tunnel. The phone only joins it.
+      OpenCode 1 server reference: <a href="https://opencode.ai/docs/server/">opencode.ai/docs/server</a>.
+      OpenCode 2 pairing: <a href="https://opencode.ai/v2/docs/cli/web/">opencode.ai/v2/docs/cli/web</a>.
     </p>
 
-    <section id="server">
+    <section id="api">
+      <div class="section-head">
+        <div class="step-badge">API</div>
+        <div>
+          <h2>Which API</h2>
+          <p>The app picks this after the server answers</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="option">
+          <span class="label">OpenCode 1</span>
+          <h3>API v1</h3>
+          <p>Start it with <code>opencode serve</code>. Connect with a host, username, and password. There is no pairing QR on v1.</p>
+        </div>
+        <div class="option preferred">
+          <span class="label">OpenCode 2</span>
+          <h3>API v2</h3>
+          <p>Scan a QR, enter a pairing code, or use a host and password. Pairing needs OpenCode 2.0.25 or later.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="remote">
       <div class="section-head">
         <div class="step-badge">1</div>
         <div>
-          <h2>Start the opencode server</h2>
-          <p>On the machine that has your project</p>
+          <h2>Remote tunnel and QR</h2>
+          <p>Away from the computer. API v2.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>On the computer</h3>
+        <pre><code>opencode pair --remote</code></pre>
+        <p>The first run asks before the server is exposed on the internet. Traffic is end-to-end encrypted, and access still uses your server password. The first start can take about a minute. The background service starts if it was stopped.</p>
+        <p class="callout">
+          <strong>Then scan.</strong> In the app, tap Scan QR and point it at the code on the computer.
+        </p>
+      </div>
+      <div class="card">
+        <h3>What the code does</h3>
+        <ul class="clean">
+          <li>The link and the code work once, and they expire in 5 minutes.</li>
+          <li>A saved tunnel stays until you turn remote access off.</li>
+          <li>Sessions last 30 days. Changing the server password signs every paired session out.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="wifi">
+      <div class="section-head">
+        <div class="step-badge">2</div>
+        <div>
+          <h2>Same Wi-Fi and QR</h2>
+          <p>Phone and computer on one network. API v2.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>On the computer</h3>
+        <p>The server has to be reachable past localhost before a QR appears.</p>
+        <pre><code>opencode service set hostname 0.0.0.0
+opencode pair</code></pre>
+        <p>In the app, tap Scan QR.</p>
+      </div>
+    </section>
+
+    <section id="password">
+      <div class="section-head">
+        <div class="step-badge">3</div>
+        <div>
+          <h2>Host, username, and password</h2>
+          <p>API v1 and API v2. In the app, tap Use a host and password.</p>
         </div>
       </div>
 
       <div class="card">
-        <h3>Run this in your project</h3>
-        <p>Username defaults to <code>opencode</code>. Keep the process running while you use the phone.</p>
-        <pre><code>cd /path/to/your/project
-OPENCODE_SERVER_PASSWORD='choose-a-strong-password' \
+        <h3>OpenCode 1, or a foreground server</h3>
+        <p>The username defaults to <code>opencode</code>. Set <code>OPENCODE_SERVER_USERNAME</code> to change it. Keep the process running.</p>
+        <pre><code>OPENCODE_SERVER_PASSWORD='choose-a-strong-password' \
   opencode serve --hostname 0.0.0.0 --port 4096</code></pre>
         <p class="callout">
-          <strong>Important:</strong> Default bind is <code>127.0.0.1</code> — phones cannot reach that.
-          Use <code>--hostname 0.0.0.0</code> for Tailscale or LAN.
+          <strong>Default bind is <code>127.0.0.1</code>.</strong> A phone cannot reach that. Use <code>--hostname 0.0.0.0</code> for LAN or Tailscale.
         </p>
       </div>
 
       <div class="card">
-        <h3>Sanity check on the machine</h3>
+        <h3>OpenCode 2 background service</h3>
+        <p><code>opencode service status</code> prints the address. The default port is 49374 on macOS, Linux, and WSL, and 45278 on Windows. If <code>opencode serve</code> prints a password and you did not set one, use that password in the app.</p>
+        <pre><code>opencode service set hostname 0.0.0.0
+opencode service set password 'choose-a-strong-password'
+opencode service start</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>In the app</h3>
+        <ol class="clean">
+          <li>Enter the host. Use a LAN address, a <code>.local</code> name, a Tailscale name, or a tunnel host. Examples: <code>192.168.1.20:4096</code>, <code>macbook.local:49374</code>.</li>
+          <li>Username <code>opencode</code>, unless you changed it. Enter the password you set.</li>
+          <li>Tap Connect. The app saves a Connection Profile and shows API v1 or API v2.</li>
+        </ol>
+        <p>Leave the password empty only when the server has none. Set one before the server listens beyond that computer.</p>
+      </div>
+
+      <div class="card">
+        <h3>Check the foreground server</h3>
         <pre><code>curl -u "opencode:${OPENCODE_SERVER_PASSWORD}" \
   http://127.0.0.1:4096/global/health</code></pre>
-        <p style="margin-top:12px;margin-bottom:0">Healthy JSON with a version string means the server is up. Spec UI: <code>http://127.0.0.1:4096/doc</code></p>
+        <p>Healthy JSON with a version string means an API v1 server is up. That check is on the computer. The phone still needs the LAN, Tailscale, or tunnel address.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="option preferred">
+          <span class="label">Off your network</span>
+          <h3>Tailscale</h3>
+          <p>Install Tailscale on the computer and the phone, same account. With the server on <code>0.0.0.0</code>, use <code>http://100.x.y.z:4096</code> or the MagicDNS name. A scanned QR prefers a Tailscale address when one answers.</p>
+        </div>
+        <div class="option">
+          <span class="label">Optional</span>
+          <h3>Tailscale Serve</h3>
+          <p>Keep the server on localhost and proxy it with <code>tailscale serve 4096</code>. Use the HTTPS URL Tailscale prints. Skip Funnel unless you want the public internet.</p>
+        </div>
       </div>
 
       <details>
-        <summary>Simulator / emulator URLs</summary>
+        <summary>Simulator and emulator URLs</summary>
         <div class="body">
           <table>
             <thead>
               <tr><th>Target</th><th>Base URL</th></tr>
             </thead>
             <tbody>
-              <tr><td>iOS Simulator (same Mac)</td><td><code>http://127.0.0.1:4096</code></td></tr>
+              <tr><td>iOS Simulator on the same Mac</td><td><code>http://127.0.0.1:4096</code></td></tr>
               <tr><td>Android emulator</td><td><code>http://10.0.2.2:4096</code></td></tr>
-              <tr><td>Physical phone</td><td>Tailscale URL in step 2</td></tr>
+              <tr><td>Physical phone</td><td>LAN, Tailscale, or the remote tunnel</td></tr>
             </tbody>
           </table>
           <p style="margin:12px 0 0;color:var(--ink-soft);font-size:0.92rem">
-            Don’t expose plain public HTTP on the open internet.
+            Use the port your server actually printed. OpenCode 2's background service is often 49374. The 4096 examples above are for <code>opencode serve</code>.
           </p>
         </div>
       </details>
     </section>
 
-    <section id="tailscale">
+    <section id="code">
       <div class="section-head">
-        <div class="step-badge">2</div>
+        <div class="step-badge">4</div>
         <div>
-          <h2>Set up Tailscale</h2>
-          <p>Phone and machine on one private network</p>
+          <h2>Pairing code</h2>
+          <p>API v2, when the camera is unavailable</p>
         </div>
       </div>
-
       <div class="card">
-        <h3>Install and sign in</h3>
+        <h3>In the app</h3>
         <ol class="clean">
-          <li>Install Tailscale on the <strong>machine</strong> and the <strong>phone</strong> (<a href="https://tailscale.com/download">download</a>).</li>
-          <li>Sign both into the <strong>same</strong> Tailscale account.</li>
-          <li>Confirm both are online in the app or <a href="https://login.tailscale.com/admin/machines">admin console</a>.</li>
+          <li>Run <code>opencode pair</code> or <code>opencode pair --remote</code> on the computer.</li>
+          <li>Tap Enter a pairing code. The code is the last part of the printed link, after <code>/auth/connect/</code>.</li>
+          <li>Or paste the whole <code>http://…/auth/connect/…</code> link into the host field, then tap Connect.</li>
         </ol>
+        <p>The code works once and expires in 5 minutes. A typed code signs in as <code>opencode</code>.</p>
       </div>
-
-      <div class="card">
-        <h3>Get the machine address</h3>
-        <pre><code>tailscale ip -4          # e.g. 100.x.y.z
-tailscale status         # MagicDNS name</code></pre>
-        <p style="margin-top:12px;margin-bottom:0">
-          Either the <code>100.x</code> IP or the MagicDNS name works once both devices are connected.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="option preferred">
-          <span class="label">Recommended</span>
-          <h3>Direct URL</h3>
-          <p>With the server bound to <code>0.0.0.0</code>, use:</p>
-          <div class="url-pill">http://100.x.y.z:4096</div>
-          <p style="margin-top:10px">or <code>http://my-mac….ts.net:4096</code></p>
-        </div>
-        <div class="option">
-          <span class="label">Optional</span>
-          <h3>Tailscale Serve</h3>
-          <p>Proxy localhost over HTTPS on the tailnet with <code>tailscale serve 4096</code>. Don’t use Funnel unless you want the public internet.</p>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:12px">
-        <h3>Check from the phone browser first</h3>
-        <p>Open this while both devices are on Tailscale:</p>
-        <div class="url-pill">http://&lt;machine-ip&gt;:4096/global/health</div>
-        <p style="margin-top:12px;margin-bottom:0">
-          Auth prompt or JSON = good. If it never loads, fix Tailscale before debugging the app.
-        </p>
-      </div>
-
-      <details>
-        <summary>Tailscale Serve commands</summary>
-        <div class="body">
-          <pre><code># Terminal 1 — loopback is fine behind Serve
-OPENCODE_SERVER_PASSWORD='…' \
-  opencode serve --hostname 127.0.0.1 --port 4096
-
-# Terminal 2
-tailscale serve 4096</code></pre>
-          <p style="margin:12px 0 0;color:var(--ink-soft);font-size:0.92rem">
-            Use the HTTPS URL Tailscale prints. Needs HTTPS certs enabled for the tailnet.
-            See <a href="https://tailscale.com/docs/features/tailscale-serve">Tailscale Serve</a>.
-          </p>
-        </div>
-      </details>
-    </section>
-
-    <section id="app">
-      <div class="section-head">
-        <div class="step-badge">3</div>
-        <div>
-          <h2>Connect the app</h2>
-          <p>Save one Connection Profile on the device</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>In OpenCode Mobile</h3>
-        <ol class="clean">
-          <li>Open the app → <strong>Connect to server</strong>.</li>
-          <li>Enter URL (from step 2), username <code>opencode</code>, and your password.</li>
-          <li>Tap <strong>Test connection</strong> (calls <code>GET /global/health</code>).</li>
-          <li>When it succeeds, tap <strong>Save</strong>.</li>
-        </ol>
-        <p style="margin-top:12px;margin-bottom:0">
-          Password is stored in Keychain / Keystore. Edit later in Settings → Server Connection.
-        </p>
-      </div>
-
-      <details>
-        <summary>If something fails</summary>
-        <div class="body">
-          <table>
-            <thead>
-              <tr><th>Symptom</th><th>Likely cause</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Unreachable / timeout</td>
-                <td>Server down; still on <code>127.0.0.1</code>; Tailscale offline; wrong IP/port</td>
-              </tr>
-              <tr>
-                <td>Authentication failed</td>
-                <td>Wrong password or username</td>
-              </tr>
-              <tr>
-                <td>Works in simulator, not phone</td>
-                <td>Phone needs Tailscale URL, not localhost</td>
-              </tr>
-              <tr>
-                <td>Android emulator can’t reach host</td>
-                <td>Use <code>http://10.0.2.2:4096</code></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
     </section>
 
     <section id="checklist">
@@ -227,19 +226,60 @@ tailscale serve 4096</code></pre>
         <div class="step-badge">✓</div>
         <div>
           <h2>Checklist</h2>
-          <p>Printable mental model</p>
+          <p>One of these is enough</p>
         </div>
       </div>
       <div class="card">
         <ul class="checklist">
-          <li><span class="box" aria-hidden="true"></span><span><code>OPENCODE_SERVER_PASSWORD</code> set</span></li>
-          <li><span class="box" aria-hidden="true"></span><span><code>opencode serve</code> listening (<code>0.0.0.0:4096</code>, or loopback + Serve)</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>Tailscale connected on machine and phone</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>Health URL opens in the phone browser</span></li>
-          <li><span class="box" aria-hidden="true"></span><span>App test succeeds, then Save</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Server is running on the computer</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Remote QR scanned, or same-Wi-Fi QR scanned</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Or a host, username, and password saved</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Phone uses a LAN, Tailscale, or tunnel address</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>App shows the server reachable, with API v1 or API v2</span></li>
         </ul>
       </div>
     </section>
+
+    <details>
+      <summary>Troubleshooting</summary>
+      <div class="body">
+        <table>
+          <thead>
+            <tr><th>Symptom</th><th>Likely cause</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>QR never prints</td>
+              <td>Server still bound to localhost. Set hostname to <code>0.0.0.0</code>, or run <code>opencode pair --remote</code>.</td>
+            </tr>
+            <tr>
+              <td>Scan fails</td>
+              <td>Code expired after 5 minutes, or pairing changed. Use a host and password, or type a fresh pairing code.</td>
+            </tr>
+            <tr>
+              <td>Unreachable or timeout</td>
+              <td>Server stopped, still on <code>127.0.0.1</code>, wrong port, phone on another network, or Tailscale offline.</td>
+            </tr>
+            <tr>
+              <td>Authentication failed</td>
+              <td>Wrong username or password. A new server password signs existing sessions out.</td>
+            </tr>
+            <tr>
+              <td>Works in the simulator, not on the phone</td>
+              <td>The phone needs a LAN, Tailscale, or tunnel address.</td>
+            </tr>
+            <tr>
+              <td>Android emulator cannot reach the host</td>
+              <td>Use <code>http://10.0.2.2:4096</code>, or the port the server printed.</td>
+            </tr>
+            <tr>
+              <td>Saved tunnel stops working</td>
+              <td>Remote access was turned off. Run <code>opencode pair --remote</code> again and scan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
     <p class="footer">
       <a href="../">All docs</a>

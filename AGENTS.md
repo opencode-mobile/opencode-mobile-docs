@@ -65,10 +65,17 @@ Every guide is a folder with `index.html` so URLs stay directory-style.
 - Point “after install” flows at `connecting/`.
 - Point “need the app” at `install-app-store/` (iOS) or
   `install-play-internal/` (Android). There is no access-request form.
-- Prefer Tailscale (or other user-managed transport) for reaching `opencode
-  serve`; the app does not create a relay.
-- Call out the `opencode serve` default bind (`127.0.0.1`) and the need for
-  `--hostname 0.0.0.0` (or Tailscale Serve) for phones.
+- The connect guide has four ways: `opencode pair --remote` for OpenCode's
+  tunnel and a QR, `opencode pair` on the same network, a host plus the
+  username and password the user set, and a one-time pairing code.
+- The app detects API v1 or API v2. API v1 is `opencode serve` with a host
+  and password. API v2 adds the QR and pairing code. Pairing needs OpenCode
+  2.0.25 or later.
+- The phone app does not open a tunnel. `opencode pair --remote` does.
+- `opencode serve` defaults to `127.0.0.1`. Phones need `--hostname 0.0.0.0`,
+  `opencode service set hostname 0.0.0.0`, Tailscale, or the remote pair
+  command. OpenCode 2's background service defaults to port 49374 on macOS,
+  Linux, and WSL, and 45278 on Windows.
 
 ## Relationship to the private repo
 
