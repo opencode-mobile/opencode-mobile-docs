@@ -30,7 +30,7 @@
       <h1>Privacy Policy</h1>
       <p class="lede">
         How <strong>OpenCode Mobile — Unofficial</strong> handles data.
-        Last updated: 23 August 2026.
+        Last updated: 19 October 2026.
       </p>
 
       <p class="note">
@@ -43,6 +43,7 @@
         <a href="#on-this-device">On this device</a>
         <a href="#your-server">Your server</a>
         <a href="#sent-to-us">Sent to us</a>
+        <a href="#feedback">Feedback</a>
         <a href="#your-choices">Your choices</a>
         <a href="#deletion">Deletion</a>
         <a href="#children">Children</a>
@@ -90,6 +91,11 @@
                 <td>Product usage events</td>
                 <td>Google Firebase, release builds</td>
                 <td>On by default. Turn off in Settings → Privacy. Clear All Data turns it back on.</td>
+              </tr>
+              <tr>
+                <td>Feedback you send (message, optional screenshot and log)</td>
+                <td>Google Firebase (US) and a private GitHub repository, release builds</td>
+                <td>Only when you tap Send in Report a problem</td>
               </tr>
               <tr>
                 <td>Advertising ID / ads</td>
@@ -177,12 +183,52 @@
         </div>
       </section>
 
+      <section id="feedback">
+        <div class="card">
+          <h3>Feedback you send</h3>
+          <p>
+            Settings → Send Feedback and Session Chat → ⋯ → Report a problem
+            open a form for a bug report or an idea. Nothing is sent until you
+            tap Send.
+          </p>
+          <p>
+            A report contains:
+          </p>
+          <ul class="clean">
+            <li>Your message and whether it is a bug or an idea.</li>
+            <li>A screenshot, if you leave it attached. From Session Chat the app captures the screen when you open the form. You can cover parts of it before sending, and covered parts are blacked out in the uploaded image. From Settings you can pick one from Photos.</li>
+            <li>A diagnostic log for the last 5, 15 or 60 minutes, if you leave it attached. It is redacted on the phone: URLs, IP addresses, host:port pairs, port numbers, the connection's host and profile name, and a custom username are masked. Redaction is heuristic, not a guarantee. You can preview the log before sending.</li>
+            <li>App and device details: platform, app version and build, OS version, device model and language setting.</li>
+            <li>Which screen you reported from, the server's API version (v1 or v2) and opencode version.</li>
+            <li>A random anonymous Firebase user ID created for sending reports, and a Firebase App Check token that shows the report came from an App Store or Google Play copy of the app.</li>
+          </ul>
+          <p>
+            A report never includes your server address, username, password or
+            profile name, or your prompts, messages or files.
+          </p>
+          <p>
+            Release builds store the report and its attachments in Google
+            Firebase (Cloud Firestore and Cloud Storage, in the United States,
+            <code>us-central1</code>). A Firebase function then files it as an
+            issue in a private GitHub repository that only the maintainers can
+            see. The issue holds the message, the app and device details above,
+            and the last 50 lines of the redacted log. The screenshot stays in
+            Firebase.
+          </p>
+          <p>
+            Debug builds do not send reports. They open the system share sheet
+            instead, and you choose where it goes.
+          </p>
+        </div>
+      </section>
+
       <section id="why">
         <div class="card">
           <h3>Why</h3>
           <p>
-            To keep the apps working, find crashes, and see which screens or
-            actions fail. Not for advertising. Data is not sold.
+            To keep the apps working, find crashes, see which screens or
+            actions fail, and fix the problems and ideas you report. Not for
+            advertising. Data is not sold.
           </p>
         </div>
       </section>
@@ -193,8 +239,14 @@
           <p>
             Crash and product-usage data is sent to <strong>Google Firebase</strong>
             (Crashlytics and Analytics) so those services can run. Google may
-            process that data on servers outside your country. There is no
-            other recipient and no sale of data.
+            process that data on servers outside your country.
+          </p>
+          <p>
+            Feedback reports are stored in <strong>Google Firebase</strong>
+            (Authentication, App Check, Cloud Firestore, Cloud Storage and Cloud
+            Functions, in the United States) and filed as issues in a private
+            <strong>GitHub</strong> repository. There is no other recipient and
+            no sale of data.
           </p>
         </div>
       </section>
@@ -204,7 +256,13 @@
           <h3>How long</h3>
           <p>
             Developer-held diagnostics follow the Firebase project defaults.
-            There is no separate user database.
+          </p>
+          <p>
+            Feedback reports, screenshots and logs in Firebase are deleted
+            automatically after 90 days. The anonymous user ID used to send them
+            is deleted after 30 days. The GitHub issue for a report is kept as
+            long as it is needed to work on the report, or until you ask for it
+            to be deleted.
           </p>
         </div>
       </section>
@@ -216,6 +274,7 @@
             <li>Settings → Privacy → Product Analytics turns optional usage events off or on. The switch starts on. Crash reporting does not change.</li>
             <li>Settings → Clear All Data removes local app data and turns Product Analytics back on.</li>
             <li>Settings → Diagnostic Logs lets you share a local log window. Nothing is sent until you share it.</li>
+            <li>Report a problem is optional. Remove the screenshot or the log before sending to leave them out.</li>
           </ul>
         </div>
       </section>
@@ -224,12 +283,14 @@
         <div class="card">
           <h3>Deletion</h3>
           <p>
-            The apps have no accounts. There is no user ID to look up. Email
+            The apps have no accounts, so there is no account to look up. Email
             <a href="mailto:digitalpotatoapps@gmail.com">digitalpotatoapps@gmail.com</a>
             with the subject “OpenCode Mobile data deletion” and whatever you
             can share: app version, OS, approximate crash time, and a Firebase
-            installation ID if you have one. Identifiable diagnostics we
-            control will be deleted. A complete wipe is not guaranteed.
+            installation ID if you have one. For a feedback report, include the
+            reference shown after sending (for example “Ref 1F0DE9”). Identifiable
+            diagnostics and reports we control will be deleted. A complete wipe
+            is not guaranteed.
           </p>
           <p>
             Content on your opencode server is outside this process. Delete it
