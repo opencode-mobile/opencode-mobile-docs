@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Hex Code for OpenCode</title>
+<link rel="canonical" href="https://opencode-mobile.github.io/opencode-mobile-docs/hexcode/privacy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="site-rail">
+      <a class="site-brand" href="../../">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="../../">Overview</a>
+        <a href="../../install-app-store/">Install · App Store</a>
+        <a href="../../install-play-internal/">Install · Google Play</a>
+        <a href="../../connecting/">Connect</a>
+        <a href="../../planned/">Planned</a>
+        <a href="../../privacy/">Privacy</a>
+      </nav>
+      <a class="site-access" href="../../connecting/">Connect</a>
+    </aside>
+    <main class="page">
+      <div class="eyebrow">Legal</div>
+      <h1>Hex Code Privacy Policy</h1>
+      <p class="lede">
+        How <strong>Hex Code for OpenCode</strong> handles data.
+        Last updated: 17 November 2026.
+      </p>
+
+      <p class="note">
+        Hex Code is an unofficial third-party app for opencode. It is not made
+        by, affiliated with, or endorsed by the opencode project. This page
+        covers the Hex Code iOS and Android apps only. It does not cover your
+        opencode server or the opencode project. OpenCode Mobile has
+        <a href="../../privacy/">its own policy</a>.
+      </p>
+
+      <nav class="scan-jump" aria-label="On this page">
+        <a href="#your-voice">Your voice</a>
+        <a href="#speech-model">Speech model</a>
+        <a href="#your-server">Your server</a>
+        <a href="#on-this-device">On this device</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#deletion">Deletion</a>
+        <a href="#children">Children</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="snapshot">
+        <div class="card">
+          <h3>Snapshot</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Kind</th>
+                <th>Where it goes</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Your voice</td>
+                <td>Turned into text on the phone. Never sent anywhere.</td>
+                <td>While you hold or lock the talk button</td>
+              </tr>
+              <tr>
+                <td>Speech model</td>
+                <td>Downloaded once from Hugging Face. Nothing about you or your speech is sent.</td>
+                <td>The first time you use dictation</td>
+              </tr>
+              <tr>
+                <td>Messages, answers, photos, files and videos</td>
+                <td>The opencode server you paired with</td>
+                <td>When you send them</td>
+              </tr>
+              <tr>
+                <td>Server password</td>
+                <td>Device only (iOS Keychain / Android Keystore-backed storage)</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Server address, project, model choice, last status card, settings</td>
+                <td>Device only (ordinary app storage)</td>
+                <td>Always</td>
+              </tr>
+              <tr>
+                <td>Analytics, crash reports, feedback, ads, advertising ID</td>
+                <td>None. Hex Code has none of these.</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="who">
+        <div class="card">
+          <h3>Who we are</h3>
+          <p>
+            <strong>Hex Code for OpenCode</strong> is an independent app from
+            the publisher of OpenCode Mobile — Unofficial. It has no account
+            system. It talks to the opencode server you pair it with and, once,
+            to Hugging Face for its speech model. We run no server for it, and
+            nothing it handles is sent to us.
+          </p>
+        </div>
+      </section>
+
+      <section id="your-voice">
+        <div class="card">
+          <h3>Your voice</h3>
+          <p>
+            When you hold the talk button, Hex Code records from the microphone
+            and turns your speech into text on the phone, with a speech model
+            stored on the phone. Audio is never sent to your server, to us, or
+            to anyone else.
+          </p>
+          <p>
+            A recording is kept in the app's private storage only until it has
+            become text. If the model is still downloading, or turning a
+            recording into text fails, the recording waits there so you can try
+            again. It is deleted when it has become text or when you clear the
+            draft. A recording left behind when the app closes is deleted the
+            next time the app starts on Android, and when the system clears the
+            app's temporary files on iPhone.
+          </p>
+          <p>
+            The text stays on the phone as a draft until you send it.
+          </p>
+        </div>
+      </section>
+
+      <section id="speech-model">
+        <div class="card">
+          <h3>Speech model download</h3>
+          <p>
+            The speech model (about 600 to 700 MB) is downloaded once from
+            <strong>Hugging Face</strong> (<code>huggingface.co</code> and the
+            servers it uses to deliver files). The request asks for fixed,
+            public model files. Like any download, it carries your IP address
+            and a standard software identifier from the phone's networking
+            library. It contains no speech, no messages, and no identifier
+            from Hex Code. Hugging Face's own privacy policy covers that
+            request.
+          </p>
+          <p>
+            The model stays on the phone until you uninstall the app. On iPhone
+            it is left out of iCloud and device backups.
+          </p>
+        </div>
+      </section>
+
+      <section id="your-server">
+        <div class="card">
+          <h3>Your server</h3>
+          <p>
+            Hex Code works with the opencode server you pair it with, normally
+            on your own computer. It sends that server:
+          </p>
+          <ul class="clean">
+            <li>The pairing code from the QR you scan, once, to get the password the app uses from then on.</li>
+            <li>The messages you send, your answers to the agent's permission requests and questions, goals, side questions, and Stop.</li>
+            <li>Photos you attach or take. They are resized and saved again as JPEG first, which leaves out location and other photo metadata.</li>
+            <li>Files and videos you attach, unchanged, including any metadata they contain. They are written to a temporary folder on the server for the agent to open.</li>
+            <li>Requests for short summaries of the agent's work, which your server writes with the model you set up in opencode.</li>
+          </ul>
+          <p>
+            The app reads your sessions, the agent's status, to-do lists,
+            summaries, and artifacts from the server to show them to you.
+          </p>
+          <p>
+            What your server does with this content is outside this policy.
+            That includes passing it to the AI model provider you chose in
+            opencode, and any logging on the server. If you pair with
+            <code>opencode pair --remote</code>, traffic goes through the
+            tunnel that command sets up, not through anything run by us.
+          </p>
+          <p>
+            Hex Code uses encrypted <code>https</code> for addresses on the
+            internet. It allows plain <code>http</code> only to addresses on
+            your own network, Tailscale, or the phone itself, where an
+            opencode server is usually reached that way. Plain
+            <code>http</code> on your network is not encrypted. Use Tailscale,
+            a VPN, or <code>https</code> if that matters to you.
+          </p>
+        </div>
+      </section>
+
+      <section id="browser">
+        <div class="card">
+          <h3>In-app browser</h3>
+          <p>
+            The app's browser opens your dev server's <code>localhost</code>
+            pages at your computer's address, and the agent's artifacts through
+            your opencode server. Links to other sites open in your phone's
+            browser. Cookies and site storage from those pages stay on the
+            phone so a page's sign-in lasts between opens. Forget this computer
+            clears them.
+          </p>
+        </div>
+      </section>
+
+      <section id="on-this-device">
+        <div class="card">
+          <h3>On this device</h3>
+          <p>
+            The server password stays in iOS Keychain or Android
+            Keystore-backed storage. The server's addresses, username and name,
+            your project folder, model choice, appearance, today's session, the
+            last status card, and your recent side questions stay in ordinary
+            app storage. Photos and files you attach are copied into the app's
+            cache while they are prepared and sent.
+          </p>
+          <p>
+            Android backups are turned off for Hex Code. On iPhone, ordinary app
+            storage is included in your own iCloud or computer backups. The
+            password is not, and the speech model is not.
+          </p>
+          <p>
+            The app writes short technical messages to the phone's system log,
+            such as timings and errors, for troubleshooting. They are not meant
+            to hold your messages, though a web address you opened can appear.
+            They stay on the phone. Hex Code never sends them.
+          </p>
+          <p>
+            On Android, Settings → Developer → Speech lab is a test screen for
+            the speech models. If you use it, it can download other speech
+            models from Hugging Face and saves its results, including the text
+            of test sentences you read aloud, in the app's own storage.
+          </p>
+        </div>
+      </section>
+
+      <section id="not-collected">
+        <div class="card">
+          <h3>What Hex Code does not do</h3>
+          <ul class="clean">
+            <li>No accounts and no sign-in with us.</li>
+            <li>No analytics, crash reporting, or usage tracking.</li>
+            <li>No ads, no advertising ID, and no tracking across apps or websites.</li>
+            <li>No sale or sharing of data. We never receive it.</li>
+            <li>No location, contacts, or calendar access.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="permissions">
+        <div class="card">
+          <h3>Permissions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Microphone</td>
+                <td>Dictation, turned into text on the phone.</td>
+              </tr>
+              <tr>
+                <td>Camera</td>
+                <td>Scanning the pairing QR code your computer shows, and taking photos you send with a message.</td>
+              </tr>
+              <tr>
+                <td>Local network (iOS), internet and network state (Android)</td>
+                <td>Reaching your opencode server and downloading the speech model.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Photos, videos and files are chosen with the system picker, so Hex
+            Code does not ask for access to your whole photo library or
+            storage. The Android app also lists a few permissions added by the
+            libraries it includes, such as foreground service, wake lock and
+            starting after a restart. Hex Code does not use them to collect or
+            send anything.
+          </p>
+        </div>
+      </section>
+
+      <section id="deletion">
+        <div class="card">
+          <h3>Deletion</h3>
+          <p>
+            We hold no data about you, so there is nothing for us to delete.
+            Data on the phone is yours to remove:
+          </p>
+          <ul class="clean">
+            <li>Settings → Forget this computer removes the server, its password, the project and model, the saved status card, side-question history, and in-app browser data.</li>
+            <li>Clearing the draft deletes any recordings waiting to become text.</li>
+            <li>Uninstalling the app removes everything it stored, including the speech model. On Android, App info → Storage → Clear storage does the same without uninstalling.</li>
+          </ul>
+          <p>
+            Sessions, messages and uploaded files live on your opencode server.
+            Delete them there.
+          </p>
+        </div>
+      </section>
+
+      <section id="children">
+        <div class="card">
+          <h3>Children</h3>
+          <p>
+            Hex Code is for people 18 and over and is not directed at children.
+          </p>
+        </div>
+      </section>
+
+      <section id="changes">
+        <div class="card">
+          <h3>Changes</h3>
+          <p>
+            The date at the top moves when these practices change.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>
+            Questions about this policy:
+            <a href="mailto:digitalpotatoapps@gmail.com">digitalpotatoapps@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
+      <p class="footer">
+        <a href="../../">All docs</a>
+        · <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
+      </p>
+    </main>
+  </div>
+</body>
+</html>
