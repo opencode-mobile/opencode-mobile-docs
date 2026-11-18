@@ -29,6 +29,7 @@ Static HTML on GitHub Pages from the `main` branch root (no build step).
 | `planned/` | Next / planned / shipped / later scan list |
 | `privacy/` | Privacy policy (Play / App Store URL) |
 | `hexcode/privacy/` | Hex Code for OpenCode privacy policy (its own Play / App Store URL); not in the nav |
+| `remoteauto/privacy/` | RemoteAuto privacy policy (its own Play URL); not in the nav |
 | `request-access/` | Legacy URL; redirects to the docs home |
 
 Every guide is a folder with `index.html` so URLs stay directory-style.
