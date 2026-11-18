@@ -15,6 +15,7 @@ Public user-facing docs for [OpenCode Mobile](https://github.com/opencode-mobile
 | [`connecting/`](./connecting/) | Start opencode serve, Tailscale, connect the app |
 | [`privacy/`](./privacy/) | Privacy policy |
 | [`hexcode/privacy/`](./hexcode/privacy/) | Hex Code for OpenCode privacy policy |
+| [`remoteauto/privacy/`](./remoteauto/privacy/) | RemoteAuto privacy policy |
 
 ## Local preview
 

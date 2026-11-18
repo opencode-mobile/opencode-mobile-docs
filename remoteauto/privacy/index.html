@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — RemoteAuto</title>
+<link rel="canonical" href="https://opencode-mobile.github.io/opencode-mobile-docs/remoteauto/privacy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="site-rail">
+      <a class="site-brand" href="../../">OpenCode Mobile <span>Docs</span></a>
+      <div class="site-tag">Operator index</div>
+      <nav class="site-nav" aria-label="Site">
+        <a href="../../">Overview</a>
+        <a href="../../install-app-store/">Install · App Store</a>
+        <a href="../../install-play-internal/">Install · Google Play</a>
+        <a href="../../connecting/">Connect</a>
+        <a href="../../planned/">Planned</a>
+        <a href="../../privacy/">Privacy</a>
+      </nav>
+      <a class="site-access" href="../../connecting/">Connect</a>
+    </aside>
+    <main class="page">
+      <div class="eyebrow">Legal</div>
+      <h1>RemoteAuto Privacy Policy</h1>
+      <p class="lede">
+        How <strong>RemoteAuto</strong> handles data.
+        Last updated: 18 November 2026.
+      </p>
+
+      <p class="note">
+        RemoteAuto is an independent Android app. It works with Google Maps
+        links, uses the Google Places API, and opens Waze. It is not made by,
+        affiliated with, or endorsed by Google or Waze. This page covers the
+        RemoteAuto app only.
+      </p>
+
+      <nav class="scan-jump" aria-label="On this page">
+        <a href="#shared-links">Shared links</a>
+        <a href="#finding-places">Finding places</a>
+        <a href="#on-this-device">On this device</a>
+        <a href="#waze-and-car">Waze and the car</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#deletion">Deletion</a>
+        <a href="#children">Children</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="snapshot">
+        <div class="card">
+          <h3>Snapshot</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Kind</th>
+                <th>Where it goes</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Short Google Maps link (<code>maps.app.goo.gl</code>)</td>
+                <td>Google, to open the link and find the full Maps address it points to</td>
+                <td>When you share a short link to the app</td>
+              </tr>
+              <tr>
+                <td>Place name or address from the link</td>
+                <td>Google Places API, to find the place's coordinates. If that finds nothing, your phone's built-in location lookup service, usually run by Google.</td>
+                <td>When the link has no coordinates in it</td>
+              </tr>
+              <tr>
+                <td>Saved places: shared text, link, name, address, coordinates, favourite, dates</td>
+                <td>Device only (ordinary app storage), and your own Android backup</td>
+                <td>Until you delete them</td>
+              </tr>
+              <tr>
+                <td>Coordinates of the place you pick</td>
+                <td>Waze on your phone, or your car's navigation app through Android Auto</td>
+                <td>When you tap a place</td>
+              </tr>
+              <tr>
+                <td>Your own location</td>
+                <td>Not read. RemoteAuto has no location permission.</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Accounts, analytics, crash reports, ads, advertising ID</td>
+                <td>None. RemoteAuto has none of these.</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="who">
+        <div class="card">
+          <h3>Who we are</h3>
+          <p>
+            <strong>RemoteAuto</strong> is an independent app from the
+            publisher of OpenCode Mobile — Unofficial. It has no account
+            system. We run no server for it, and nothing it handles is sent
+            to us.
+          </p>
+        </div>
+      </section>
+
+      <section id="shared-links">
+        <div class="card">
+          <h3>Shared links</h3>
+          <p>
+            You add a place by sharing it from Google Maps, or another app, to
+            RemoteAuto through Android's share sheet. The app reads the text
+            that is shared and looks for a Google Maps link in it.
+          </p>
+          <p>
+            Google Maps often shares a short link such as
+            <code>maps.app.goo.gl/…</code>. To read it, RemoteAuto opens that
+            link the way a browser would and follows it to the full Google
+            Maps address, sometimes by loading the page and reading the
+            address from it. These requests go to Google. They carry the link,
+            your IP address, and a generic browser identifier. They carry no
+            account, no device identifier, and nothing else you shared.
+          </p>
+          <p>
+            If the full link contains coordinates, the app uses them and
+            nothing more is looked up.
+          </p>
+        </div>
+      </section>
+
+      <section id="finding-places">
+        <div class="card">
+          <h3>Finding places</h3>
+          <p>
+            When a link has a place name or address but no coordinates,
+            RemoteAuto sends that text to the
+            <strong>Google Places API</strong>
+            (<code>places.googleapis.com</code>) to find the place. It then
+            asks for that place's details by the ID Google returned. The
+            request uses our API key and names the app: its package name and
+            the fingerprint of its signing certificate. These identify the
+            app, not you or your phone. Requests are encrypted with
+            <code>https</code>.
+          </p>
+          <p>
+            If the Places API finds nothing, the app asks your phone's
+            built-in location lookup service (Android's Geocoder) with the
+            same text. That service is part of the phone's system, not part
+            of RemoteAuto. On most phones it is provided by Google Play
+            services and sends the text to Google.
+          </p>
+          <p>
+            Google handles these requests under its own
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+            We do not receive or keep the text you look up.
+          </p>
+        </div>
+      </section>
+
+      <section id="on-this-device">
+        <div class="card">
+          <h3>On this device</h3>
+          <p>
+            Each place you share is saved in the app's own storage on the
+            phone: the text exactly as it was shared, the Google Maps link,
+            the place name and address, its coordinates, whether you marked
+            it a favourite, how it was found, when you saved it, and when
+            you last navigated to it.
+          </p>
+          <p>
+            Android backup is turned on for RemoteAuto. If you use Android's
+            backup to your Google account, or move to a new phone with
+            Android's transfer tool, your saved places go with it. That backup
+            belongs to your Google account. We cannot see it.
+          </p>
+          <p>
+            The app writes technical messages to the phone's system log for
+            troubleshooting. These can include the shared text, links, place
+            names, addresses and coordinates. They stay on the phone, and
+            RemoteAuto never sends them anywhere. Other apps cannot read
+            them. Someone who connects the phone to a computer with
+            developer debugging turned on can.
+          </p>
+        </div>
+      </section>
+
+      <section id="waze-and-car">
+        <div class="card">
+          <h3>Waze and the car</h3>
+          <p>
+            When you tap a place on the phone, RemoteAuto opens the Waze app
+            with that place's coordinates and asks it to start navigation.
+            Only the coordinates are passed, not the name or the shared text.
+            If Waze is not installed, the app tells you and opens nothing.
+            Waze handles your trip under its own privacy policy.
+          </p>
+          <p>
+            In Android Auto, the car screen shows your saved places: their
+            name and address, or the link or shared text when there is no
+            address. When you pick one, its coordinates are handed to the
+            navigation app you use in Android Auto. RemoteAuto sends nothing
+            to the car maker or anyone else.
+          </p>
+        </div>
+      </section>
+
+      <section id="not-collected">
+        <div class="card">
+          <h3>What RemoteAuto does not do</h3>
+          <ul class="clean">
+            <li>No accounts and no sign-in.</li>
+            <li>No server of ours. Nothing is sent to us.</li>
+            <li>No analytics, crash reporting, or usage tracking.</li>
+            <li>No ads, no advertising ID, and no tracking across apps or websites.</li>
+            <li>No sale or sharing of data.</li>
+            <li>No access to your location, contacts, photos, or files.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="permissions">
+        <div class="card">
+          <h3>Permissions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Internet</td>
+                <td>Opening short Google Maps links and finding places with the Google Places API.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            RemoteAuto also checks whether Waze is installed, so it can open
+            it. It asks for no other permissions.
+          </p>
+        </div>
+      </section>
+
+      <section id="deletion">
+        <div class="card">
+          <h3>Deletion</h3>
+          <p>
+            We hold no data about you, so there is nothing for us to delete.
+            Data on the phone is yours to remove:
+          </p>
+          <ul class="clean">
+            <li>Press and hold a saved place, then Delete, to remove it.</li>
+            <li>Menu → Delete all removes every saved place.</li>
+            <li>Uninstalling the app removes everything it stored. App info → Storage → Clear storage does the same without uninstalling.</li>
+          </ul>
+          <p>
+            Copies in your Android backup are managed in your Google account
+            settings.
+          </p>
+        </div>
+      </section>
+
+      <section id="children">
+        <div class="card">
+          <h3>Children</h3>
+          <p>
+            RemoteAuto is for people 18 and over and is not directed at
+            children.
+          </p>
+        </div>
+      </section>
+
+      <section id="changes">
+        <div class="card">
+          <h3>Changes</h3>
+          <p>
+            The date at the top moves when these practices change.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>
+            Questions about this policy:
+            <a href="mailto:digitalpotatoapps@gmail.com">digitalpotatoapps@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
+      <p class="footer">
+        <a href="../../">All docs</a>
+        · <a href="https://github.com/opencode-mobile/opencode-mobile-docs">GitHub</a>
+      </p>
+    </main>
+  </div>
+</body>
+</html>
